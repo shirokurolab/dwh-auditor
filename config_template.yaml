@@ -1,0 +1,29 @@
+# bq-auditor config.yaml
+# bq-auditor init で生成されるデフォルト設定ファイルです。
+# 環境に合わせてしきい値などを調整してください。
+
+pricing:
+  # 1TB スキャンあたりのオンデマンド料金 (USD)
+  # BigQuery のオンデマンド料金 (東京リージョン含む) のデフォルト値
+  # ※ Editions (Flex Slots, Standard, Enterprise) を利用している場合は 0.0 を設定し、
+  #   slot_hourly_usd でスロット時間あたりの料金を別途設定してください。
+  tb_scan_usd: 6.25
+
+thresholds:
+  # フルスキャン検知の除外ライン (GB)
+  # この値以下のスキャンは「フルスキャン警告」から除外されます。
+  # 小規模なマスターテーブルのスキャンで警告疲れを防ぐための設定です。
+  ignore_full_scan_under_gb: 1.0
+
+  # 高コストクエリの報告件数上限
+  top_expensive_queries_limit: 10
+
+  # ゾンビテーブルとみなすまでの未参照日数
+  # この日数以上、一度も SELECT されていないテーブルを「ゾンビテーブル」として報告します。
+  zombie_table_days: 90
+
+# (将来の拡張用) dbt 連携設定
+# dbt が発行するクエリを job_label_key で識別し、モデルごとのコストを集計します。
+dbt:
+  enabled: false
+  job_label_key: "dbt_model"
