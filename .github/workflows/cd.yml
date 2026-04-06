@@ -1,0 +1,37 @@
+name: CD — Build & Publish to PyPI
+
+on:
+  release:
+    types: [published]
+
+# OIDC (Trusted Publishing) に必要な権限設定
+# id-token: write が PyPI との OIDC 認証に必要
+# contents: read はリポジトリのコード取得に必要
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  build-and-publish:
+    name: Build and publish to PyPI
+    runs-on: ubuntu-latest
+
+    environment: release
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+
+      # ── Build ────────────────────────────────────────────────────────────
+      - name: Build package distributions
+        run: uv build
+        # dist/ ディレクトリに .whl と .tar.gz が生成されます
+
+      # ── Publish ─────────────────────────────────────────────────────────
+      - name: Publish to PyPI (Trusted Publishing / OIDC)
+        uses: pypa/gh-action-pypi-publish@release/v1
+        # API トークン不要。PyPI 側で Trusted Publishing を設定済みであれば
+        # GitHub の id-token が自動的に使われます。

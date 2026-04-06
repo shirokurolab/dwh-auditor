@@ -21,8 +21,8 @@ todo.md
 venv/
 env/
 
-# uv
-uv.lock
+# uv — uv.lock は必ずコミットする (Lockfile is Sacred)
+# uv.lock
 
 # Testing
 .pytest_cache/
@@ -52,5 +52,3 @@ config.yaml
 
 # GCP credentials (never commit!)
 service_account*.json
-
-spec

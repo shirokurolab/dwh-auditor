@@ -1,0 +1,48 @@
+name: CI — Lint, Type Check & Test
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  test-and-lint:
+    name: "Python ${{ matrix.python-version }}"
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies (from uv.lock)
+        run: uv sync --all-extras --dev
+
+      # ── Lint ────────────────────────────────────────────────────────────
+      - name: "Lint: ruff check"
+        run: uv run ruff check .
+
+      - name: "Lint: ruff format (check only)"
+        run: uv run ruff format --check .
+
+      # ── Type Check ──────────────────────────────────────────────────────
+      - name: "Type check: mypy"
+        run: uv run mypy src/bq_auditor
+
+      # ── Test ────────────────────────────────────────────────────────────
+      - name: "Test: pytest"
+        run: uv run pytest tests/ -v
