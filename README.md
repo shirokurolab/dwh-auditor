@@ -3,6 +3,9 @@
 ![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
+[![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)
+
+**📚 公式ドキュメント:** [https://shirokurolab.github.io/dwh-auditor/](https://shirokurolab.github.io/dwh-auditor/)
 
 **DWH-Auditor** は、BigQueryのメタデータを分析し、**「クラウド破産」を防ぐためのコスト最適化とデータガバナンス監査**を瞬時に行うオープンソースのCLIツールです。
 

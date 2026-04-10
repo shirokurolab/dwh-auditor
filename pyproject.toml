@@ -50,6 +50,7 @@ dwh-auditor = "dwh_auditor.main:app"
 
 [project.urls]
 Homepage = "https://github.com/shirokurolab/dwh-auditor"
+Documentation = "https://shirokurolab.github.io/dwh-auditor/"
 Repository = "https://github.com/shirokurolab/dwh-auditor"
 Issues = "https://github.com/shirokurolab/dwh-auditor/issues"
 
