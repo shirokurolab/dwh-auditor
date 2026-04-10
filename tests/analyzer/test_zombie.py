@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from bq_auditor.analyzer.zombie import detect_zombie_tables
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.analyzer.zombie import detect_zombie_tables
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.table import TableStorage
 
 
 class TestDetectZombieTables:

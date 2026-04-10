@@ -10,8 +10,8 @@ from datetime import datetime, timezone
 
 import google.cloud.bigquery as bq
 
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.table import TableStorage
 
 # INFORMATION_SCHEMA.JOBS から取得する SQL テンプレート
 _JOBS_QUERY_TEMPLATE = """

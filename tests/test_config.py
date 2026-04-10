@@ -4,13 +4,13 @@ from __future__ import annotations
 
 import pytest
 
-from bq_auditor.config import AppConfig, load_config
+from dwh_auditor.config import AppConfig, load_config
 
 
 class TestLoadConfig:
     """load_config 関数のテスト."""
 
-    def test_load_valid_config(self, tmp_path: pytest.fixture) -> None:  # type: ignore[name-defined]
+    def test_load_valid_config(self, tmp_path: pytest.fixture) -> None:
         """正常な YAML ファイルを読み込めること."""
         config_file = tmp_path / "config.yaml"
         config_file.write_text(
@@ -34,7 +34,7 @@ dbt:
         assert config.thresholds.zombie_table_days == 60
         assert config.dbt.enabled is False
 
-    def test_load_partial_config_uses_defaults(self, tmp_path: pytest.fixture) -> None:  # type: ignore[name-defined]
+    def test_load_partial_config_uses_defaults(self, tmp_path: pytest.fixture) -> None:
         """一部のフィールドが省略されている場合はデフォルト値が使われること."""
         config_file = tmp_path / "config.yaml"
         config_file.write_text(
@@ -50,7 +50,7 @@ pricing:
         assert config.thresholds.zombie_table_days == 90
         assert config.thresholds.top_expensive_queries_limit == 10
 
-    def test_load_empty_yaml_uses_defaults(self, tmp_path: pytest.fixture) -> None:  # type: ignore[name-defined]
+    def test_load_empty_yaml_uses_defaults(self, tmp_path: pytest.fixture) -> None:
         """空の YAML ファイルの場合はすべてデフォルト値が使われること."""
         config_file = tmp_path / "config.yaml"
         config_file.write_text("", encoding="utf-8")

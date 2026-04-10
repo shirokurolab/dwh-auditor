@@ -6,9 +6,9 @@ from datetime import datetime, timezone
 
 import pytest
 
-from bq_auditor.config import AppConfig, PricingConfig, ThresholdsConfig
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.config import AppConfig, PricingConfig, ThresholdsConfig
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.table import TableStorage
 
 
 @pytest.fixture

@@ -8,7 +8,7 @@ from unittest.mock import MagicMock
 import pytest
 from pytest_mock import MockerFixture
 
-from bq_auditor.extractor.bigquery import BigQueryExtractor
+from dwh_auditor.extractor.bigquery import BigQueryExtractor
 
 # ---------------------------------------------------------------------------
 # テスト用のダミー Row オブジェクト
@@ -35,7 +35,7 @@ def mock_bq_client(mocker: MockerFixture) -> MagicMock:
     """google.cloud.bigquery.Client の初期化をモック化する."""
     mock_client = MagicMock()
     mocker.patch(
-        "bq_auditor.extractor.bigquery.bq.Client",
+        "dwh_auditor.extractor.bigquery.bq.Client",
         return_value=mock_client,
     )
     return mock_client

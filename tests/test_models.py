@@ -4,11 +4,11 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.result import (
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.result import (
     AuditResult,
 )
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.models.table import TableStorage
 
 
 class TestQueryJob:

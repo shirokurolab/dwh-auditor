@@ -4,9 +4,9 @@
 純粋な Python ロジックのみで構成し、単体テストがミリ秒単位で完了するようにします。
 """
 
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.result import CostInsight
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.result import CostInsight
 
 # 1 TB をバイトに変換する定数
 _BYTES_PER_TB: float = 1024**4

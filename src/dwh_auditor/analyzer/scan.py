@@ -6,9 +6,9 @@
 
 import re
 
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.result import FullScanInsight
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.result import FullScanInsight
 
 # 1 GB をバイトに変換する定数
 _BYTES_PER_GB: float = 1024**3

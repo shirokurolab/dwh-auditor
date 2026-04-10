@@ -5,8 +5,8 @@ Analyzer 層が Reporter 層に渡す診断結果の型定義です。
 
 from pydantic import BaseModel, Field
 
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.table import TableStorage
 
 
 class CostInsight(BaseModel):

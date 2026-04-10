@@ -3,13 +3,13 @@
 注意: このモジュールは google.cloud.bigquery を一切インポートしてはなりません。
 """
 
-from bq_auditor.analyzer.cost import analyze_cost
-from bq_auditor.analyzer.scan import detect_full_scans
-from bq_auditor.analyzer.zombie import detect_zombie_tables
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.result import AuditResult
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.analyzer.cost import analyze_cost
+from dwh_auditor.analyzer.scan import detect_full_scans
+from dwh_auditor.analyzer.zombie import detect_zombie_tables
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.result import AuditResult
+from dwh_auditor.models.table import TableStorage
 
 
 def run_analysis(

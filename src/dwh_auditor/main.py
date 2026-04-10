@@ -1,8 +1,8 @@
-"""BQ-Auditor CLI エントリーポイント.
+"""DWH-Auditor CLI エントリーポイント.
 
 コマンド:
-  bq-auditor init     - カレントディレクトリに config.yaml を生成
-  bq-auditor analyze  - BigQuery の監査を実行してレポートを出力
+  dwh-auditor init     - カレントディレクトリに config.yaml を生成
+  dwh-auditor analyze  - BigQuery の監査を実行してレポートを出力
 """
 
 from __future__ import annotations
@@ -13,15 +13,15 @@ from typing import Annotated
 
 import typer
 
-from bq_auditor.analyzer.runner import run_analysis
-from bq_auditor.config import load_config
-from bq_auditor.extractor.bigquery import BigQueryExtractor
-from bq_auditor.reporter.console import print_to_console
-from bq_auditor.reporter.markdown import generate_markdown_report
+from dwh_auditor.analyzer.runner import run_analysis
+from dwh_auditor.config import load_config
+from dwh_auditor.extractor.bigquery import BigQueryExtractor
+from dwh_auditor.reporter.console import print_to_console
+from dwh_auditor.reporter.markdown import generate_markdown_report
 
 app = typer.Typer(
-    name="bq-auditor",
-    help="🚀 BQ-Auditor: BigQuery のコスト最適化とガバナンス監査のための CLI ツール",
+    name="dwh-auditor",
+    help="🚀 DWH-Auditor: BigQuery のコスト最適化とガバナンス監査のための CLI ツール",
     add_completion=False,
     pretty_exceptions_show_locals=False,
 )
@@ -104,8 +104,8 @@ def analyze(
     """BigQuery のメタデータを分析し、コスト削減のインサイトを抽出します.
 
     使用例:
-        bq-auditor analyze --project my-gcp-project --days 30 --output console
-        bq-auditor analyze --project my-gcp-project --region region-asia-northeast1 --output markdown
+        dwh-auditor analyze --project my-gcp-project --days 30 --output console
+        dwh-auditor analyze --project my-gcp-project --region region-asia-northeast1 --output markdown
     """
     typer.echo(f"🔍 プロジェクト '{project}' ({region}) の過去 {days} 日間の監査を開始します...")
 
@@ -115,10 +115,10 @@ def analyze(
         typer.echo(
             f"⚠️  設定ファイル '{config_path}' が見つかりません。"
             " デフォルト設定で実行します。\n"
-            "   `bq-auditor init` でデフォルト設定ファイルを生成できます。",
+            "   `dwh-auditor init` でデフォルト設定ファイルを生成できます。",
             err=True,
         )
-        from bq_auditor.config import AppConfig
+        from dwh_auditor.config import AppConfig
 
         config = AppConfig()
     else:

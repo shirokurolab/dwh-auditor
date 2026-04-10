@@ -6,9 +6,9 @@ from datetime import datetime
 
 import pytest
 
-from bq_auditor.analyzer.scan import _is_full_scan, detect_full_scans
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
+from dwh_auditor.analyzer.scan import _is_full_scan, detect_full_scans
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
 
 
 class TestIsFullScan:

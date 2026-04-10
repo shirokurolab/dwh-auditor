@@ -6,10 +6,10 @@
 
 from datetime import datetime, timezone
 
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
-from bq_auditor.models.result import ZombieTableInsight
-from bq_auditor.models.table import TableStorage
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
+from dwh_auditor.models.result import ZombieTableInsight
+from dwh_auditor.models.table import TableStorage
 
 _BYTES_PER_GB: float = 1024**3
 

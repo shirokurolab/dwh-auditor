@@ -4,9 +4,9 @@ from __future__ import annotations
 
 import pytest
 
-from bq_auditor.analyzer.cost import _bytes_to_tb, _estimate_cost_usd, analyze_cost
-from bq_auditor.config import AppConfig
-from bq_auditor.models.job import QueryJob
+from dwh_auditor.analyzer.cost import _bytes_to_tb, _estimate_cost_usd, analyze_cost
+from dwh_auditor.config import AppConfig
+from dwh_auditor.models.job import QueryJob
 
 
 class TestBytesToTb:

@@ -4,9 +4,8 @@ from rich import box
 from rich.console import Console
 from rich.panel import Panel
 from rich.table import Table
-from rich.text import Text
 
-from bq_auditor.models.result import AuditResult
+from dwh_auditor.models.result import AuditResult
 
 _console = Console()
 
@@ -33,7 +32,6 @@ def print_to_console(result: AuditResult) -> None:
     _print_cost_table(result)
     _print_full_scan_table(result)
     _print_zombie_table(result)
-    _print_footer()
 
 
 def _print_header(result: AuditResult) -> None:
@@ -50,7 +48,7 @@ def _print_header(result: AuditResult) -> None:
     _console.print(
         Panel(
             summary,
-            title="[bold cyan]🚀 BQ-Auditor 監査レポート[/bold cyan]",
+            title="[bold cyan]🚀 DWH-Auditor 監査レポート[/bold cyan]",
             border_style="cyan",
         )
     )
@@ -139,20 +137,3 @@ def _print_zombie_table(result: AuditResult) -> None:
 
     _console.print(table)
     _console.print()
-
-
-def _print_footer() -> None:
-    """フッターのビジネス導線を表示する."""
-    footer = Text()
-    footer.append(
-        "💼 これらの課題を解決するための専門的なサポートが必要ですか?\n",
-        style="bold",
-    )
-    footer.append(
-        "データモデルの再設計や dbt 移行支援については、お気軽にご相談ください。\n",
-    )
-    footer.append(
-        "👉 https://github.com/your-org/bq-auditor",
-        style="bold blue underline",
-    )
-    _console.print(Panel(footer, border_style="dim", title="[dim]Enterprise Support[/dim]"))
