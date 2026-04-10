@@ -1,0 +1,17 @@
+######################################################
+dwh_auditor.config — 設定ファイルの読み込みと DWH 設定管理
+######################################################
+
+``dwh_auditor.config`` モジュールは、``config.yaml`` を読み込み
+Pydantic モデルとして型安全に管理します。
+外部から取得した設定値は即座にバリデーションされるため、
+不正な値（負のコスト単価など）は起動時に検出されます。
+
+詳細な設定値の説明は :doc:`../configuration` を参照してください。
+
+----
+
+.. automodule:: dwh_auditor.config
+   :members:
+   :undoc-members:
+   :show-inheritance:

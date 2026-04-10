@@ -1,0 +1,9 @@
+# Sphinx documentation build dependencies
+# Used by: docs.yml CI/CD workflow and local docs development
+#
+#   uv sync --extra docs
+#   uv run sphinx-build -b html docs/ docs/_build/html
+
+sphinx>=7.0.0
+furo>=2024.1.29
+sphinx-copybutton>=0.5.0
