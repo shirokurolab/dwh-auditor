@@ -76,8 +76,7 @@ select = [
     "RUF", # ruff-specific
 ]
 ignore = [
-    "ANN101", # Missing type annotation for `self`
-    "ANN102", # Missing type annotation for `cls`
+
     "RUF001", # String contains ambiguous unicode (日本語 UI 文字列で許容)
     "RUF002", # Docstring contains ambiguous unicode (日本語 docstring で許容)
     "RUF003", # Comment contains ambiguous unicode (日本語コメントで許容)
