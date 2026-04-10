@@ -1,5 +1,5 @@
-# bq-auditor config.yaml
-# bq-auditor init で生成されるデフォルト設定ファイルです。
+# dwh-auditor config.yaml
+# dwh-auditor init で生成されるデフォルト設定ファイルです。
 # 環境に合わせてしきい値などを調整してください。
 
 pricing:
