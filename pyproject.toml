@@ -3,13 +3,13 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "bq-auditor"
+name = "dwh-auditor"
 version = "0.1.0"
 description = "BigQuery cost optimization and governance audit CLI tool"
 readme = "README.md"
-license = { text = "MIT" }
+license = { file = "LICENSE" }
 requires-python = ">=3.9"
-authors = [{ name = "BQ-Auditor Contributors" }]
+authors = [{ name = "DWH-Auditor Contributors" }]
 keywords = ["bigquery", "cost", "audit", "data-engineering", "cli"]
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -39,17 +39,22 @@ dev = [
     "pytest-mock>=3.14.0",
     "types-PyYAML>=6.0.0",
 ]
+docs = [
+    "sphinx>=7.0.0",
+    "furo>=2024.1.29",
+    "sphinx-copybutton>=0.5.2",
+]
 
 [project.scripts]
-bq-auditor = "bq_auditor.main:app"
+dwh-auditor = "dwh_auditor.main:app"
 
 [project.urls]
-Homepage = "https://github.com/your-org/bq-auditor"
-Repository = "https://github.com/your-org/bq-auditor"
-Issues = "https://github.com/your-org/bq-auditor/issues"
+Homepage = "https://github.com/shirokurolab/dwh-auditor"
+Repository = "https://github.com/shirokurolab/dwh-auditor"
+Issues = "https://github.com/shirokurolab/dwh-auditor/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/bq_auditor"]
+packages = ["src/dwh_auditor"]
 
 [tool.ruff]
 target-version = "py39"
@@ -78,7 +83,7 @@ ignore = [
 ]
 
 [tool.ruff.lint.isort]
-known-first-party = ["bq_auditor"]
+known-first-party = ["dwh_auditor"]
 
 [tool.mypy]
 python_version = "3.9"
@@ -97,6 +102,11 @@ mypy_path = "src"
 
 [[tool.mypy.overrides]]
 module = "google.cloud.*"
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "pytest"
+follow_imports = "skip"
 ignore_missing_imports = true
 
 [tool.pytest.ini_options]
