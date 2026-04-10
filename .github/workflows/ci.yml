@@ -41,7 +41,7 @@ jobs:
 
       # ── Type Check ──────────────────────────────────────────────────────
       - name: "Type check: mypy"
-        run: uv run mypy src/bq_auditor
+        run: uv run mypy src/dwh_auditor
 
       # ── Test ────────────────────────────────────────────────────────────
       - name: "Test: pytest"
