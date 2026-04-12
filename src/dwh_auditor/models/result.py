@@ -3,12 +3,13 @@
 Analyzer 層が Reporter 層に渡す診断結果の型定義です。
 """
 
+from __future__ import annotations
+
 from datetime import datetime
 
 from pydantic import BaseModel, Field
 
 from dwh_auditor.models.job import QueryJob
-from dwh_auditor.models.table import TableStorage
 from dwh_auditor.models.table import TableStorage
 
 
@@ -56,8 +57,12 @@ class AuditResult(BaseModel):
     project_id: str = Field(description="分析対象の GCP プロジェクト ID")
     total_jobs_analyzed: int = Field(description="分析したジョブの総数")
     total_tables_analyzed: int = Field(description="分析したテーブルの総数")
-    top_expensive_queries: list[CostInsight] = Field(default_factory=list, description="コストが高いアドホッククエリのランキング")
-    recurring_expensive_queries: list[RecurringCostInsight] = Field(default_factory=list, description="定常実行の高コストクエリ")
+    top_expensive_queries: list[CostInsight] = Field(
+        default_factory=list, description="コストが高いアドホッククエリのランキング"
+    )
+    recurring_expensive_queries: list[RecurringCostInsight] = Field(
+        default_factory=list, description="定常実行の高コストクエリ"
+    )
     full_scans: list[FullScanInsight] = Field(default_factory=list, description="フルスキャンと判定されたクエリ一覧")
     table_profiles: list[TableUsageProfile] = Field(
         default_factory=list, description="各テーブルの利用状況およびゾンビ判定結果"

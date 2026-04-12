@@ -8,7 +8,6 @@
 from __future__ import annotations
 
 import shutil
-import sys
 from pathlib import Path
 from typing import Annotated
 
@@ -110,7 +109,7 @@ def analyze(
     ] = "report.md",
 ) -> None:
     """BigQuery のメタデータを分析し、コスト削減のインサイトを抽出します."""
-    is_json = (output == "json")
+    is_json = output == "json"
 
     if not is_json:
         typer.echo(f"🔍 プロジェクト '{project}' ({region}) の過去 {days} 日間の監査を開始します...")
@@ -140,19 +139,14 @@ def analyze(
 
     if not is_json:
         typer.echo(f"📡 BigQuery からメタデータを取得中... (Job Projects: {', '.join(jp_list)})")
-    
+
     # 2. Extractor: BQ からデータ取得
     try:
-        extractor = BigQueryExtractor(
-            target_project_id=project, 
-            job_project_ids=jp_list, 
-            region=region
-        )
+        extractor = BigQueryExtractor(target_project_id=project, job_project_ids=jp_list, region=region)
         # 用途別に最適化されたクエリを発行する
         top_cost_jobs = extractor.get_top_cost_jobs(days=days, limit=config.thresholds.top_expensive_queries_limit)
         heavy_scan_jobs = extractor.get_heavy_scan_jobs(
-            days=days, 
-            min_scanned_bytes=int(config.thresholds.ignore_full_scan_under_gb * (1024**3))
+            days=days, min_scanned_bytes=int(config.thresholds.ignore_full_scan_under_gb * (1024**3))
         )
         recurring_stats = extractor.get_recurring_cost_jobs(days=days)
         table_usages = extractor.get_table_usage_stats(days=days)
@@ -163,7 +157,7 @@ def analyze(
 
     if not is_json:
         typer.echo("🔬 分析中...")
-        
+
     # 3. Analyzer: 診断の実行
     result = run_analysis(
         top_cost_jobs=top_cost_jobs,

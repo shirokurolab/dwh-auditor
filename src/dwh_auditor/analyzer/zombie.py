@@ -4,6 +4,8 @@
 純粋な Python ロジックのみで構成し、単体テストがミリ秒単位で完了するようにします。
 """
 
+from __future__ import annotations
+
 from datetime import datetime, timezone
 from typing import Any
 

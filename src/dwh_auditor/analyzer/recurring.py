@@ -11,9 +11,7 @@ from dwh_auditor.models.result import RecurringCostInsight
 _BYTES_PER_TB: float = 1024**4
 
 
-def analyze_recurring_cost(
-    raw_stats: list[dict[str, Any]], config: AppConfig
-) -> list[RecurringCostInsight]:
+def analyze_recurring_cost(raw_stats: list[dict[str, Any]], config: AppConfig) -> list[RecurringCostInsight]:
     """定常実行されているクエリのメタデータを RecurringCostInsight のリストにマップ・計算する.
 
     Args:

@@ -34,9 +34,7 @@ def _is_full_scan_fallback(query: str) -> bool:
     return not bool(_PARTITION_FILTER_PATTERN.search(query))
 
 
-def detect_full_scans(
-    jobs: list[QueryJob], tables: list[TableStorage], config: AppConfig
-) -> list[FullScanInsight]:
+def detect_full_scans(jobs: list[QueryJob], tables: list[TableStorage], config: AppConfig) -> list[FullScanInsight]:
     """フルスキャンの可能性があるクエリを検知する.
 
     バイト比率バリデーション方式:
@@ -64,7 +62,7 @@ def detect_full_scans(
 
         total_referenced_size = 0
         cannot_calculate_size = False
-        
+
         if not job.referenced_tables:
             cannot_calculate_size = True
         else:

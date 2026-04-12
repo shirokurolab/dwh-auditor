@@ -38,7 +38,7 @@ def print_to_console(result: AuditResult) -> None:
 def _print_header(result: AuditResult) -> None:
     """監査サマリーのヘッダーパネルを表示する."""
     zombie_count = len(result.table_profiles)
-    
+
     summary = (
         f"[bold]プロジェクト:[/bold] {result.project_id}\n"
         f"[bold]分析期間:[/bold] 過去 {result.analyzed_days} 日間\n"
@@ -56,6 +56,7 @@ def _print_header(result: AuditResult) -> None:
             border_style="cyan",
         )
     )
+
 
 def _print_recurring_cost_table(result: AuditResult) -> None:
     """定常実行されている高コストクエリを表示する."""
@@ -89,6 +90,7 @@ def _print_recurring_cost_table(result: AuditResult) -> None:
 
     _console.print(table)
     _console.print()
+
 
 def _print_cost_table(result: AuditResult) -> None:
     """高コストクエリのテーブルを表示する."""

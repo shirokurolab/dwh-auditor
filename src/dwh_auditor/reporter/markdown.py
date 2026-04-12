@@ -75,14 +75,14 @@ def generate_markdown_report(result: AuditResult, filepath: str = "report.md") -
             "| 順位 | 実行回数 | 合計コスト (USD) | スキャン (TB) | 最終実行日時 | クエリ |",
             "|------|--------|---------------|-------------|------------|-------|",
         ]
-        for i, insight in enumerate(result.recurring_expensive_queries, 1):
-            dt_str = insight.last_executed_at.strftime("%Y-%m-%d %H:%M UTC")
-            query_snippet = _truncate(insight.query_sample.replace("\n", " "), 50)
+        for i, rec_insight in enumerate(result.recurring_expensive_queries, 1):
+            dt_str = rec_insight.last_executed_at.strftime("%Y-%m-%d %H:%M UTC")
+            query_snippet = _truncate(rec_insight.query_sample.replace("\n", " "), 50)
             lines.append(
                 f"| {i} "
-                f"| {insight.execution_count} 回 "
-                f"| **{_format_cost(insight.total_estimated_usd)}** "
-                f"| {insight.total_scanned_tb:.4f} "
+                f"| {rec_insight.execution_count} 回 "
+                f"| **{_format_cost(rec_insight.total_estimated_usd)}** "
+                f"| {rec_insight.total_scanned_tb:.4f} "
                 f"| {dt_str} "
                 f"| `{query_snippet}` |"
             )
@@ -100,13 +100,13 @@ def generate_markdown_report(result: AuditResult, filepath: str = "report.md") -
             "| 順位 | ユーザー | スキャン (TB) | 推定コスト (USD) | クエリ |",
             "|------|---------|-------------|---------------|-------|",
         ]
-        for i, insight in enumerate(result.top_expensive_queries, 1):
-            query_snippet = _truncate(insight.job.query.replace("\n", " "), 60)
+        for i, cost_insight in enumerate(result.top_expensive_queries, 1):
+            query_snippet = _truncate(cost_insight.job.query.replace("\n", " "), 60)
             lines.append(
                 f"| {i} "
-                f"| `{insight.job.user_email}` "
-                f"| {insight.scanned_tb:.4f} "
-                f"| {_format_cost(insight.estimated_cost_usd)} "
+                f"| `{cost_insight.job.user_email}` "
+                f"| {cost_insight.scanned_tb:.4f} "
+                f"| {_format_cost(cost_insight.estimated_cost_usd)} "
                 f"| `{query_snippet}` |"
             )
     else:
@@ -125,9 +125,9 @@ def generate_markdown_report(result: AuditResult, filepath: str = "report.md") -
             "| ユーザー | スキャン (GB) | クエリ |",
             "|---------|------------|-------|",
         ]
-        for insight in result.full_scans:
-            query_snippet = _truncate(insight.job.query.replace("\n", " "), 60)
-            lines.append(f"| `{insight.job.user_email}` | {insight.scanned_gb:.2f} | `{query_snippet}` |")
+        for fs_insight in result.full_scans:
+            query_snippet = _truncate(fs_insight.job.query.replace("\n", " "), 60)
+            lines.append(f"| `{fs_insight.job.user_email}` | {fs_insight.scanned_gb:.2f} | `{query_snippet}` |")
     else:
         lines.append("✅ フルスキャンは検出されませんでした。")
     lines += ["", "---", ""]
@@ -148,7 +148,7 @@ def generate_markdown_report(result: AuditResult, filepath: str = "report.md") -
         for profile in result.table_profiles:
             dt_str = profile.last_accessed_at.strftime("%Y-%m-%d") if profile.last_accessed_at else "---"
             users_str = ", ".join(profile.top_users) if profile.top_users else "---"
-            
+
             lines.append(
                 f"| 🧟 ゾンビ "
                 f"| `{profile.table.full_table_id}` "

@@ -14,8 +14,8 @@ __all__ = [
     "AuditResult",
     "CostInsight",
     "FullScanInsight",
-    "RecurringCostInsight",
-    "TableUsageProfile",
     "QueryJob",
+    "RecurringCostInsight",
     "TableStorage",
+    "TableUsageProfile",
 ]

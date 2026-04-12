@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+
 from dwh_auditor.models.result import AuditResult
 from dwh_auditor.reporter.json_out import generate_json_report
 
@@ -17,14 +18,14 @@ def test_generate_json_report() -> None:
         top_expensive_queries=[],
         recurring_expensive_queries=[],
         full_scans=[],
-        table_profiles=[]
+        table_profiles=[],
     )
 
     json_str = generate_json_report(result)
-    
+
     # JSON としてパースできること
     parsed = json.loads(json_str)
-    
+
     assert parsed["project_id"] == "test-prj"
     assert parsed["analyzed_days"] == 30
     assert parsed["total_jobs_analyzed"] == 100

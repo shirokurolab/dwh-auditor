@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime, timezone
-from typing import Any
+from typing import Any, Callable, TypeVar, cast
 
 import google.cloud.bigquery as bq
 from google.api_core.exceptions import Forbidden
@@ -114,7 +114,7 @@ def _parse_referenced_tables(json_str: str | None) -> list[str]:
         return []
 
 
-def _build_union_query(projects: list[str], region: str, body_template: str, **kwargs: Any) -> str:
+def _build_union_query(projects: list[str], region: str, body_template: str, **kwargs: Any) -> str:  # noqa: ANN401
     """複数プロジェクトに対する UNION ALL クエリを構築する."""
     parts = []
     for p in projects:
@@ -122,9 +122,13 @@ def _build_union_query(projects: list[str], region: str, body_template: str, **k
     return "\nUNION ALL\n".join(parts)
 
 
-def _handle_bq_error(func):
+F = TypeVar("F", bound=Callable[..., Any])
+
+
+def _handle_bq_error(func: F) -> F:
     """BQ 実行時のエラー、特に IAM 権限不足をキャッチして分かりやすいエラーを提示するデコレータ."""
-    def wrapper(*args, **kwargs):
+
+    def wrapper(*args: Any, **kwargs: Any) -> Any:  # noqa: ANN401
         try:
             return func(*args, **kwargs)
         except Forbidden as e:
@@ -135,7 +139,8 @@ def _handle_bq_error(func):
             c.print("2. 指定されたプロジェクトが存在しない、または API が有効化されていない")
             c.print(f"\n[red]詳細エラー:[/red] {e.message}")
             sys.exit(1)
-    return wrapper
+
+    return cast(F, wrapper)
 
 
 class BigQueryExtractor:
@@ -157,7 +162,9 @@ class BigQueryExtractor:
     @_handle_bq_error
     def get_heavy_scan_jobs(self, days: int, min_scanned_bytes: int) -> list[QueryJob]:
         """フルスキャン判定用に、一定容量以上をスキャンしたジョブのみ抽出する."""
-        sql = _build_union_query(self._job_project_ids, self._region, _HEAVY_SCAN_SQL_BODY, days=days, min_bytes=min_scanned_bytes)
+        sql = _build_union_query(
+            self._job_project_ids, self._region, _HEAVY_SCAN_SQL_BODY, days=days, min_bytes=min_scanned_bytes
+        )
         # 上限は念の為1000件などに絞る。非常に大規模環境でOOMを防ぐため
         sql += "\nORDER BY total_bytes_billed DESC LIMIT 1000"
         return self._fetch_jobs_by_sql(sql)
@@ -186,7 +193,9 @@ class BigQueryExtractor:
     @_handle_bq_error
     def get_recurring_cost_jobs(self, days: int, min_executions: int = 5, limit: int = 50) -> list[dict[str, Any]]:
         """定常実行クエリのメタデータを抽出する."""
-        sql = _build_union_query(self._job_project_ids, self._region, _RECURRING_SQL_BODY, days=days, min_executions=min_executions)
+        sql = _build_union_query(
+            self._job_project_ids, self._region, _RECURRING_SQL_BODY, days=days, min_executions=min_executions
+        )
         sql += f"\nORDER BY total_bytes_billed DESC LIMIT {limit}"
         rows = self._client.query(sql).result()
         results = []
@@ -194,13 +203,15 @@ class BigQueryExtractor:
             c_time: datetime = row["last_executed_at"]
             if c_time.tzinfo is None:
                 c_time = c_time.replace(tzinfo=timezone.utc)
-            results.append({
-                "query_hash": str(row["query_hash"]),
-                "query_sample": str(row["query_sample"]),
-                "execution_count": int(row["execution_count"]),
-                "total_bytes_billed": int(row["total_bytes_billed"]),
-                "last_executed_at": c_time,
-            })
+            results.append(
+                {
+                    "query_hash": str(row["query_hash"]),
+                    "query_sample": str(row["query_sample"]),
+                    "execution_count": int(row["execution_count"]),
+                    "total_bytes_billed": int(row["total_bytes_billed"]),
+                    "last_executed_at": c_time,
+                }
+            )
         return results
 
     @_handle_bq_error

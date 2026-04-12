@@ -1,9 +1,8 @@
 """detect_full_scans 関数のテスト."""
 
 from __future__ import annotations
-from datetime import datetime
 
-import pytest
+from datetime import datetime
 
 from dwh_auditor.analyzer.scan import _is_full_scan_fallback, detect_full_scans
 from dwh_auditor.config import AppConfig
@@ -37,15 +36,15 @@ class TestDetectFullScans:
             user_email="test@example.com",
             query="SELECT * FROM test_project.test_dataset.test_table",
             creation_time=sample_timestamp,
-            total_bytes_billed=950, # 95% ratio -> > 90% threshold
-            referenced_tables=[table.full_table_id]
+            total_bytes_billed=950,  # 95% ratio -> > 90% threshold
+            referenced_tables=[table.full_table_id],
         )
-        
+
         # force threshold to 0.90 for test
         default_config.thresholds.full_scan_ratio_threshold = 0.90
         # drop ignore limits to 0 for test so small scans trigger it
         default_config.thresholds.ignore_full_scan_under_gb = 0.0
-        
+
         result = detect_full_scans([job], [table], default_config)
         assert len(result) == 1
         assert result[0].job.job_id == "job1"
@@ -62,11 +61,11 @@ class TestDetectFullScans:
             user_email="test@example.com",
             query="SELECT * FROM test_project.test_dataset.test_table WHERE ds='2024-01-01'",
             creation_time=sample_timestamp,
-            total_bytes_billed=100, # 10% ratio -> not a full scan
-            referenced_tables=[table.full_table_id]
+            total_bytes_billed=100,  # 10% ratio -> not a full scan
+            referenced_tables=[table.full_table_id],
         )
         default_config.thresholds.full_scan_ratio_threshold = 0.90
         default_config.thresholds.ignore_full_scan_under_gb = 0.0
-        
+
         result = detect_full_scans([job], [table], default_config)
         assert len(result) == 0
