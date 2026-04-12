@@ -96,4 +96,4 @@ uv run pytest
 
 アクション: メンテナがPRを main ブランチにマージする。
 
-内容: マージ後、タグ付け（例: v0.2.2）を行うことで、GitHub Actions経由でPyPIへ自動リリースされ、世界中のユーザーが pip install (または uv pip install) できるようになります。
+内容: マージ後、タグ付け（例: v0.2.3）を行うことで、GitHub Actions経由でPyPIへ自動リリースされ、世界中のユーザーが pip install (または uv pip install) できるようになります。
