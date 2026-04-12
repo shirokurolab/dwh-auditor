@@ -12,7 +12,7 @@
 「誰がどんな重いクエリを投げているのか」「どのテーブルが使われていないのか」を可視化し、具体的なアクション（インサイト）を提示します。
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output.png" alt="DWH-Auditor Console Report Sample">
+  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.0.png" alt="DWH-Auditor Console Report Sample">
 </p>
 
 ## 💡 なぜ DWH-Auditor なのか？
