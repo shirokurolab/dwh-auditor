@@ -25,7 +25,7 @@ def analyze_table_usage(
     tables: list[TableStorage],
     usage_stats: dict[str, dict[str, Any]],
     config: AppConfig,
-    now: Optional[datetime] = None,
+    now: Optional[datetime] = None,  # noqa: UP045
 ) -> list[TableUsageProfile]:
     """各テーブルのプロファイル（利用状況とゾンビ判定結果）を返す.
 

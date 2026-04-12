@@ -94,7 +94,7 @@ WHERE deleted = FALSE
 """
 
 
-def _parse_referenced_tables(json_str: Optional[str]) -> list[str]:
+def _parse_referenced_tables(json_str: Optional[str]) -> list[str]:  # noqa: UP045
     """JSON 文字列からテーブルIDの完全修飾名のリストを構築する."""
     import json
 
