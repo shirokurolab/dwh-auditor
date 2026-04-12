@@ -117,10 +117,15 @@ ga_id = os.environ.get("GA_ID")
 if ga_id:
     html_js_files = [
         (f"https://www.googletagmanager.com/gtag/js?id={ga_id}", {"async": "async"}),
-        (None, {"body": f"""
+        (
+            None,
+            {
+                "body": f"""
             window.dataLayer = window.dataLayer || [];
             function gtag(){{dataLayer.push(arguments);}}
             gtag('js', new Date());
             gtag('config', '{ga_id}');
-        """}),
+        """
+            },
+        ),
     ]
