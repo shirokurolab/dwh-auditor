@@ -58,13 +58,13 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 
    pip install dwh-auditor
 
-   # 設定ファイルを生成
+   # Generate a configuration file
    dwh-auditor init
 
-   # BigQuery プロジェクトを監査（コンソール出力）
+   # Audit BigQuery project (Console output)
    dwh-auditor analyze --project my-gcp-project --days 30
 
-   # Markdown レポートを生成
+   # Generate Markdown report
    dwh-auditor analyze --project my-gcp-project --output markdown
 
 

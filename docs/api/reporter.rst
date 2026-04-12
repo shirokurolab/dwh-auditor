@@ -20,7 +20,7 @@ dwh_auditor.reporter — 監査結果の出力・レポート生成層
    from dwh_auditor.reporter.console import print_to_console
    from dwh_auditor.models.result import AuditResult
 
-   result: AuditResult = ...  # Analyzer から受け取る
+   result: AuditResult = ...  # Received from Analyzer
    print_to_console(result)
 
 .. automodule:: dwh_auditor.reporter.console

@@ -12,39 +12,44 @@ msgstr ""
 "POT-Creation-Date: 2026-04-12 23:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../api/config.rst:3
 msgid "dwh_auditor.config — 設定ファイルの読み込みと DWH 設定管理"
-msgstr ""
+msgstr "dwh_auditor.config — Load configuration files and manage DWH settings"
 
 #: ../../api/config.rst:5
 msgid ""
 "``dwh_auditor.config`` モジュールは、``config.yaml`` を読み込み Pydantic "
 "モデルとして型安全に管理します。 外部から取得した設定値は即座にバリデーションされるため、 不正な値（負のコスト単価など）は起動時に検出されます。"
 msgstr ""
+"The ``dwh_auditor.config`` module reads ``config.yaml`` and manages it type-"
+"safely as a Pydantic model. Configuration values ​​obtained from external "
+"sources are immediately validated, so invalid values ​​(such as negative "
+"unit costs) are detected at startup."
 
 #: ../../api/config.rst:10
 msgid "詳細な設定値の説明は :doc:`../configuration` を参照してください。"
 msgstr ""
+"See :doc:`../configuration` for detailed configuration value descriptions."
 
 #: dwh_auditor.config:1 of
 msgid "設定ファイル (config.yaml) の読み込みとパース."
-msgstr ""
+msgstr "Load and parse configuration file (config.yaml)."
 
 #: dwh_auditor.config.PricingConfig:1 of
 msgid "コスト計算の単価設定."
-msgstr ""
+msgstr "Unit price setting for cost calculation."
 
 #: ../../api/config.rst
 msgid "パラメータ"
-msgstr ""
+msgstr "parameters"
 
 #: dwh_auditor.config.AppConfig.model_config:1
 #: dwh_auditor.config.DbtConfig.model_config:1
@@ -54,52 +59,54 @@ msgid ""
 "Configuration for the model, should be a dictionary conforming to "
 "[`ConfigDict`][pydantic.config.ConfigDict]."
 msgstr ""
+"Configuration for the model, should be a dictionary conforming to "
+"[`ConfigDict`][pydantic.config.ConfigDict]."
 
 #: dwh_auditor.config.ThresholdsConfig:1 of
 msgid "警告しきい値の設定."
-msgstr ""
+msgstr "Setting warning thresholds."
 
 #: dwh_auditor.config.DbtConfig:1 of
 msgid "dbt 連携設定 (将来拡張用)."
-msgstr ""
+msgstr "dbt linkage settings (for future expansion)."
 
 #: dwh_auditor.config.AppConfig:1 of
 msgid "設定ファイル全体のスキーマ."
-msgstr ""
+msgstr "Schema of the entire configuration file."
 
 #: dwh_auditor.config.load_config:1 of
 msgid "YAML 設定ファイルを読み込み AppConfig に変換して返す."
 msgstr ""
+"Reads a YAML configuration file, converts it to AppConfig, and returns it."
 
 #: dwh_auditor.config.load_config:3 of
 msgid "設定ファイルのパス (例: \"config.yaml\")"
-msgstr ""
+msgstr "Configuration file path (e.g. \"config.yaml\")"
 
 #: ../../api/config.rst
 msgid "戻り値"
-msgstr ""
+msgstr "return value"
 
 #: dwh_auditor.config.load_config:5 of
 msgid "パース済みの AppConfig オブジェクト"
-msgstr ""
+msgstr "Parsed AppConfig object"
 
 #: ../../api/config.rst
 msgid "例外"
-msgstr ""
+msgstr "exception"
 
 #: dwh_auditor.config.load_config:7 of
 msgid "指定されたパスにファイルが存在しない場合"
-msgstr ""
+msgstr "If the file does not exist at the specified path"
 
 #: dwh_auditor.config.load_config:8 of
 msgid "YAML のパースに失敗した場合"
-msgstr ""
+msgstr "If YAML parsing fails"
 
 #: dwh_auditor.config.load_config:9 of
 msgid "設定値がスキーマに合致しない場合"
-msgstr ""
+msgstr "If the settings do not match the schema"
 
 #: ../../api/config.rst
 msgid "戻り値の型"
-msgstr ""
-
+msgstr "return type"

@@ -12,23 +12,26 @@ msgstr ""
 "POT-Creation-Date: 2026-04-12 23:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../api/analyzer.rst:3
 msgid "dwh_auditor.analyzer — DWH コスト分析・セキュリティ診断ロジック"
-msgstr ""
+msgstr "dwh_auditor.analyzer — DWH cost analysis/security diagnosis logic"
 
 #: ../../api/analyzer.rst:5
 msgid ""
 "``dwh_auditor.analyzer`` パッケージは、Extractor から受け取った Pydantic モデルと "
 "``config.yaml`` のしきい値を突き合わせ、診断を行う **純粋な Python ロジック** です。"
 msgstr ""
+"The ``dwh_auditor.analyzer`` package is **pure Python logic** that performs "
+"diagnostics by matching the Pydantic model received from the Extractor with "
+"the thresholds in ``config.yaml``."
 
 #: ../../api/analyzer.rst:10
 msgid ""
@@ -36,14 +39,18 @@ msgid ""
 "通信が存在しないため、ユニットテストはミリ秒単位で完了します。 ダミーの ``QueryJob`` / ``TableStorage`` "
 "オブジェクトを渡すだけでテストできます。"
 msgstr ""
+"This package does not import ``google.cloud.bigquery`` at all. ** Since "
+"there is no external API communication, unit tests complete in milliseconds."
+" You can test it by simply passing a dummy ``QueryJob`` / ``TableStorage`` "
+"object."
 
 #: ../../api/analyzer.rst:17
 msgid "コスト分析 (``analyzer.cost``)"
-msgstr ""
+msgstr "Cost analysis (``analyzer.cost``)"
 
 #: dwh_auditor.analyzer.cost:1 of
 msgid "高コストクエリの分析ロジック."
-msgstr ""
+msgstr "Analysis logic for high cost queries."
 
 #: dwh_auditor.analyzer.cost:3 dwh_auditor.analyzer.scan:3
 #: dwh_auditor.analyzer.zombie:3 of
@@ -51,127 +58,134 @@ msgid ""
 "注意: このモジュールは google.cloud.bigquery を一切インポートしてはなりません。 純粋な Python "
 "ロジックのみで構成し、単体テストがミリ秒単位で完了するようにします。"
 msgstr ""
+"Note: This module must not import google.cloud.bigquery at all. Configure "
+"only pure Python logic and ensure unit tests complete in milliseconds."
 
 #: dwh_auditor.analyzer.cost.analyze_cost:1 of
 msgid "クエリジョブを解析し、高コストクエリのランキングを返す."
-msgstr ""
+msgstr "Analyzes query jobs and returns rankings of high cost queries."
 
 #: dwh_auditor.analyzer.cost.analyze_cost:3 of
 msgid "キャッシュヒットしたジョブは課金ゼロなので除外します。"
-msgstr ""
+msgstr "Jobs that hit the cache are excluded because they are charged zero."
 
 #: ../../api/analyzer.rst
 msgid "パラメータ"
-msgstr ""
+msgstr "parameters"
 
 #: dwh_auditor.analyzer.cost.analyze_cost:5 of
 msgid "QueryJob のリスト (Extractor から受け取る)"
-msgstr ""
+msgstr "List of QueryJobs (received from Extractor)"
 
 #: dwh_auditor.analyzer.cost.analyze_cost:6
 #: dwh_auditor.analyzer.runner.run_analysis:5
 #: dwh_auditor.analyzer.scan.detect_full_scans:7
 #: dwh_auditor.analyzer.zombie.detect_zombie_tables:8 of
 msgid "AppConfig オブジェクト"
-msgstr ""
+msgstr "AppConfig object"
 
 #: ../../api/analyzer.rst
 msgid "戻り値"
-msgstr ""
+msgstr "return value"
 
 #: dwh_auditor.analyzer.cost.analyze_cost:8 of
 msgid "CostInsight のリスト (コスト降順、上位 N 件)"
-msgstr ""
+msgstr "List of CostInsights (descending cost, top N)"
 
 #: ../../api/analyzer.rst
 msgid "戻り値の型"
-msgstr ""
+msgstr "return type"
 
 #: ../../api/analyzer.rst:27
 msgid "フルスキャン検知 (``analyzer.scan``)"
-msgstr ""
+msgstr "Full scan detection (``analyzer.scan``)"
 
 #: dwh_auditor.analyzer.scan:1 of
 msgid "フルスキャン（非効率クエリ）の検知ロジック."
-msgstr ""
+msgstr "Full scan (inefficient query) detection logic."
 
 #: dwh_auditor.analyzer.scan.detect_full_scans:1 of
 msgid "フルスキャンの可能性があるクエリを検知する."
-msgstr ""
+msgstr "Detect queries that may result in a full scan."
 
 #: dwh_auditor.analyzer.scan.detect_full_scans:3 of
-msgid "ignore_full_scan_under_gb 以下のスキャンは警告から除外します (小規模マスターテーブルのスキャンで警告疲れを防ぐため)。"
+msgid ""
+"ignore_full_scan_under_gb 以下のスキャンは警告から除外します (小規模マスターテーブルのスキャンで警告疲れを防ぐため)。"
 msgstr ""
+"ignore_full_scan_under_gb Exclude scans below from alerts (to avoid alert "
+"fatigue with scans of small master tables)."
 
 #: dwh_auditor.analyzer.scan.detect_full_scans:6 of
 msgid "QueryJob のリスト"
-msgstr ""
+msgstr "List of QueryJobs"
 
 #: dwh_auditor.analyzer.scan.detect_full_scans:9 of
 msgid "FullScanInsight のリスト (スキャン GB 降順)"
-msgstr ""
+msgstr "List of FullScanInsight (descending scan GB)"
 
 #: ../../api/analyzer.rst:37
 msgid "ゾンビテーブル検知 (``analyzer.zombie``)"
-msgstr ""
+msgstr "Zombie table detection (``analyzer.zombie``)"
 
 #: dwh_auditor.analyzer.zombie:1 of
 msgid "ゾンビテーブル（使われていないテーブル）の検知ロジック."
-msgstr ""
+msgstr "Zombie table (unused table) detection logic."
 
 #: dwh_auditor.analyzer.zombie.detect_zombie_tables:1 of
 msgid "ゾンビテーブルを検知する."
-msgstr ""
+msgstr "Detect zombie tables."
 
 #: dwh_auditor.analyzer.zombie.detect_zombie_tables:3 of
 msgid "zombie_table_days 以上、一度も SELECT で参照されていないテーブルを ゾンビとして報告します。"
 msgstr ""
+"zombie_table_days Reports tables that have never been referenced in a SELECT"
+" as zombies."
 
 #: dwh_auditor.analyzer.zombie.detect_zombie_tables:6 of
 msgid "TableStorage のリスト (Extractor から受け取る)"
-msgstr ""
+msgstr "List of TableStorage (received from Extractor)"
 
 #: dwh_auditor.analyzer.zombie.detect_zombie_tables:7 of
 msgid "QueryJob のリスト (同上。参照テーブルの特定に使用)"
-msgstr ""
+msgstr "List of QueryJobs (ditto, used to identify reference tables)"
 
 #: dwh_auditor.analyzer.zombie.detect_zombie_tables:10 of
 msgid "ZombieTableInsight のリスト (ストレージサイズ降順)"
-msgstr ""
+msgstr "List of ZombieTableInsights (descending storage size)"
 
 #: ../../api/analyzer.rst:47
 msgid "分析ランナー (``analyzer.runner``)"
-msgstr ""
+msgstr "Analysis Runner (``analyzer.runner``)"
 
 #: dwh_auditor.analyzer.runner:1 of
 msgid "分析ランナー: 各 Analyzer を呼び出して AuditResult に集約する."
 msgstr ""
+"Analysis runner: Calls each Analyzer and aggregates it into an AuditResult."
 
 #: dwh_auditor.analyzer.runner:3 of
 msgid "注意: このモジュールは google.cloud.bigquery を一切インポートしてはなりません。"
-msgstr ""
+msgstr "Note: This module must not import google.cloud.bigquery at all."
 
 #: dwh_auditor.analyzer.runner.run_analysis:1 of
 msgid "全 Analyzer を実行し、総合監査結果を返す."
-msgstr ""
+msgstr "Runs all analyzers and returns comprehensive audit results."
 
 #: dwh_auditor.analyzer.runner.run_analysis:3 of
 msgid "Extractor から受け取った QueryJob リスト"
-msgstr ""
+msgstr "QueryJob list received from Extractor"
 
 #: dwh_auditor.analyzer.runner.run_analysis:4 of
 msgid "Extractor から受け取った TableStorage リスト"
-msgstr ""
+msgstr "TableStorage list received from Extractor"
 
 #: dwh_auditor.analyzer.runner.run_analysis:6 of
 msgid "分析対象期間 (日数)"
-msgstr ""
+msgstr "Analysis period (days)"
 
 #: dwh_auditor.analyzer.runner.run_analysis:7 of
 msgid "分析対象の GCP プロジェクト ID"
-msgstr ""
+msgstr "GCP project ID to be analyzed"
 
 #: dwh_auditor.analyzer.runner.run_analysis:9 of
 msgid "AuditResult オブジェクト"
-msgstr ""
-
+msgstr "AuditResult object"

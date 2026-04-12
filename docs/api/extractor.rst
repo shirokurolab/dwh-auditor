@@ -18,7 +18,7 @@ dwh_auditor.extractor — BigQuery メタデータ抽出層
 .. code-block:: python
 
    def test_get_job_history(mocker):
-       # google.cloud.bigquery.Client だけをモック化
+       # Only mock google.cloud.bigquery.Client
        mock_client = mocker.patch("dwh_auditor.extractor.bigquery.bq.Client")
        mock_client.return_value.query.return_value.result.return_value = [
            {"job_id": "j1", "user_email": "u@e.com", ...}

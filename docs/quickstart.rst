@@ -58,7 +58,7 @@ uv を使ったインストール（推奨）
    git clone https://github.com/shirokurolab/dwh-auditor.git
    cd dwh-auditor
 
-   # 仮想環境の作成と依存インストール
+   # Create virtual environment and install dependencies
    uv venv && uv pip install -e ".[dev]"
 
 
@@ -109,7 +109,7 @@ Application Default Credentials（推奨）
 
 .. code-block:: bash
 
-   # my-gcp-project の過去 30 日間をコンソール出力で分析
+   # Analyze my-gcp-project for the past 30 days and output to console
    dwh-auditor analyze --project my-gcp-project --days 30
 
 東京リージョンを指定する場合
@@ -171,6 +171,7 @@ analyze コマンドのオプション一覧
    Usage: dwh-auditor analyze [OPTIONS]
 
    Options:
+
      -p, --project TEXT       分析対象の GCP プロジェクト ID  [required]
      -jp, --job-projects TEXT クエリが実行されるプロジェクトのカンマ区切りリスト
      -r, --region TEXT        BigQuery のリージョン           [default: region-us]

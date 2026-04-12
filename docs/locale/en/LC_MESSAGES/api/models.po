@@ -12,17 +12,17 @@ msgstr ""
 "POT-Creation-Date: 2026-04-12 23:10+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../api/models.rst:3
 msgid "dwh_auditor.models — DWH 監査用内部データモデル (Pydantic)"
-msgstr ""
+msgstr "dwh_auditor.models — Internal data model for DWH auditing (Pydantic)"
 
 #: ../../api/models.rst:5
 msgid ""
@@ -30,28 +30,34 @@ msgid ""
 "データを受け渡す際の「型契約」を定義します。 ``dict`` 型を直接受け渡すのではなく Pydantic モデルを使うことで、 "
 "静的型チェックとランタイムバリデーションの両方を実現します。"
 msgstr ""
+"The ``dwh_auditor.models`` package defines the \"type contract\" when each "
+"layer (Extractor → Analyzer → Reporter) passes data. By using the Pydantic "
+"model rather than passing ``dict`` types directly, we achieve both static "
+"type checking and runtime validation."
 
 #: ../../api/models.rst:13
 msgid "クエリジョブモデル (``models.job``)"
-msgstr ""
+msgstr "Query job model (``models.job``)"
 
 #: dwh_auditor.models.job:1 of
 msgid "BigQuery クエリジョブのデータモデル."
-msgstr ""
+msgstr "BigQuery query job data model."
 
 #: dwh_auditor.models.job.QueryJob:1 of
 msgid "BigQuery のクエリジョブ履歴を表すモデル."
-msgstr ""
+msgstr "A model that represents query job history in BigQuery."
 
 #: dwh_auditor.models.job.QueryJob:3 of
 msgid ""
 "Extractor 層が BQ の INFORMATION_SCHEMA.JOBS から取得し、 Analyzer "
 "層に渡す際のデータ契約として機能します。"
 msgstr ""
+"It serves as the data contract that the Extractor layer retrieves from BQ's "
+"INFORMATION_SCHEMA.JOBS and passes it to the Analyzer layer."
 
 #: ../../api/models.rst
 msgid "パラメータ"
-msgstr ""
+msgstr "parameters"
 
 #: dwh_auditor.models.job.QueryJob.model_config:1
 #: dwh_auditor.models.result.AuditResult.model_config:1
@@ -63,54 +69,61 @@ msgid ""
 "Configuration for the model, should be a dictionary conforming to "
 "[`ConfigDict`][pydantic.config.ConfigDict]."
 msgstr ""
+"Configuration for the model, should be a dictionary conforming to "
+"[`ConfigDict`][pydantic.config.ConfigDict]."
 
 #: ../../api/models.rst:23
 msgid "テーブルストレージモデル (``models.table``)"
-msgstr ""
+msgstr "Table storage model (``models.table``)"
 
 #: dwh_auditor.models.table:1 of
 msgid "BigQuery テーブルストレージのデータモデル."
-msgstr ""
+msgstr "BigQuery table storage data model."
 
 #: dwh_auditor.models.table.TableStorage:1 of
 msgid "BigQuery テーブルごとのストレージ情報を表すモデル."
-msgstr ""
+msgstr "A model that represents storage information for each BigQuery table."
 
 #: dwh_auditor.models.table.TableStorage:3 of
 msgid ""
 "Extractor 層が BQ の INFORMATION_SCHEMA.TABLE_STORAGE から取得し、 Analyzer "
 "層（ゾンビテーブル検知）に渡す際のデータ契約として機能します。"
 msgstr ""
+"It serves as a data contract that the Extractor layer retrieves from BQ's "
+"INFORMATION_SCHEMA.TABLE_STORAGE and passes it to the Analyzer layer (zombie"
+" table detection)."
 
 #: dwh_auditor.models.table.TableStorage.full_table_id:1 of
 msgid "プロジェクト・データセット・テーブル名を結合した完全修飾名."
-msgstr ""
+msgstr "Fully qualified name concatenated with project dataset table name."
 
 #: ../../api/models.rst:33
 msgid "分析結果モデル (``models.result``)"
-msgstr ""
+msgstr "Analysis result model (``models.result``)"
 
 #: dwh_auditor.models.result:1 of
 msgid "分析結果のデータモデル."
-msgstr ""
+msgstr "Data model of analysis results."
 
 #: dwh_auditor.models.result:3 of
 msgid "Analyzer 層が Reporter 層に渡す診断結果の型定義です。"
 msgstr ""
+"Type definition for diagnostic results that the Analyzer layer passes to the"
+" Reporter layer."
 
 #: dwh_auditor.models.result.CostInsight:1 of
 msgid "高コストクエリの分析結果."
-msgstr ""
+msgstr "Analysis results of high cost queries."
 
 #: dwh_auditor.models.result.FullScanInsight:1 of
 msgid "フルスキャンと判定されたクエリの分析結果."
-msgstr ""
+msgstr "Analysis results of queries determined to be full scans."
 
 #: dwh_auditor.models.result.ZombieTableInsight:1 of
 msgid "使われていないテーブルの分析結果."
-msgstr ""
+msgstr "Analysis results for unused tables."
 
 #: dwh_auditor.models.result.AuditResult:1 of
 msgid "Analyzer 層が最終的に出力する総合監査結果レポート."
 msgstr ""
-
+"Comprehensive audit result report finally output by the Analyzer layer."

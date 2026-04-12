@@ -12,107 +12,113 @@ msgstr ""
 "POT-Creation-Date: 2026-04-12 23:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../contributing.rst:3
 msgid "コントリビュートガイド"
-msgstr ""
+msgstr "Contributing Guide"
 
 #: ../../contributing.rst:5
 msgid "dwh-auditor はオープンソースプロジェクトです。 バグ報告、機能改善の提案、Pull Request を歓迎します。"
 msgstr ""
+"dwh-auditor is an open-source project. Bug reports, feature improvement "
+"proposals, and Pull Requests are welcome."
 
 #: ../../contributing.rst:10
 msgid "開発環境のセットアップ"
-msgstr ""
+msgstr "Development Environment Setup"
 
 #: ../../contributing.rst:33
 msgid "コントリビュートの流れ"
-msgstr ""
+msgstr "Contribution Flow"
 
 #: ../../contributing.rst:35
 msgid "Issue の確認または作成"
-msgstr ""
+msgstr "Confirm or Create an Issue"
 
 #: ../../contributing.rst:36
 msgid "``feature/<機能名>`` または ``fix/<バグ名>`` ブランチを切る"
-msgstr ""
+msgstr "Create a ``feature/<feature-name>`` or ``fix/<bug-name>`` branch"
 
 #: ../../contributing.rst:37
 msgid "コードを実装（TDD: テストを先に書く）"
-msgstr ""
+msgstr "Implement the code (TDD: Write tests first)"
 
 #: ../../contributing.rst:38
 msgid "``ruff`` / ``mypy`` を通過させる"
-msgstr ""
+msgstr "Pass ``ruff`` / ``mypy`` checks"
 
 #: ../../contributing.rst:39
 msgid "Pull Request を作成"
-msgstr ""
+msgstr "Create a Pull Request"
 
 #: ../../contributing.rst:43
 msgid "開発ルール"
-msgstr ""
+msgstr "Development Rules"
 
 #: ../../contributing.rst:49
 msgid "ルール"
-msgstr ""
+msgstr "Rule"
 
 #: ../../contributing.rst:50
 msgid "詳細"
-msgstr ""
+msgstr "Details"
 
 #: ../../contributing.rst:51
 msgid "TDD"
-msgstr ""
+msgstr "TDD"
 
 #: ../../contributing.rst:52
 msgid "テストを先に書く（Red → Green → Refactor）"
-msgstr ""
+msgstr "Write tests first (Red → Green → Refactor)"
 
 #: ../../contributing.rst:53
 msgid "型ヒント必須"
-msgstr ""
+msgstr "Type Hinting Required"
 
 #: ../../contributing.rst:54
 msgid "全関数・メソッドに型ヒントを付与し ``mypy --strict`` を通過させる"
-msgstr ""
+msgstr "Add type hints to all functions/methods and pass ``mypy --strict``"
 
 #: ../../contributing.rst:55
 msgid "Lint ゼロ警告"
-msgstr ""
+msgstr "Zero Lint Warnings"
 
 #: ../../contributing.rst:56
 msgid "``ruff check`` / ``ruff format`` で警告ゼロを維持する"
-msgstr ""
+msgstr "Maintain zero warnings with ``ruff check`` / ``ruff format``"
 
 #: ../../contributing.rst:57
 msgid "Extractor の隔離"
-msgstr ""
+msgstr "Isolation of Extractor"
 
 #: ../../contributing.rst:58
 msgid "``google.cloud.bigquery`` は ``extractor/bigquery.py`` のみでインポートする"
 msgstr ""
+"Import ``google.cloud.bigquery`` exclusively in ``extractor/bigquery.py``"
 
 #: ../../contributing.rst:60
 msgid ""
 "詳しくは `CONTRIBUTING.md <https://github.com/shirokurolab/dwh-"
 "auditor/blob/main/CONTRIBUTING.md>`_ を参照してください。"
 msgstr ""
+"For more information, see `CONTRIBUTING.md "
+"<https://github.com/shirokurolab/dwh-auditor/blob/main/CONTRIBUTING.md>`_."
 
 #: ../../contributing.rst:64
 msgid "ライセンス"
-msgstr ""
+msgstr "License"
 
 #: ../../contributing.rst:66
 msgid ""
 "MIT License — 詳細は `LICENSE <https://github.com/shirokurolab/dwh-"
 "auditor/blob/main/LICENSE>`_ を参照してください。"
 msgstr ""
-
+"MIT License — See `LICENSE <https://github.com/shirokurolab/dwh-"
+"auditor/blob/main/LICENSE>`_ for details."
