@@ -5,7 +5,8 @@ from dwh_auditor.models.result import (
     AuditResult,
     CostInsight,
     FullScanInsight,
-    ZombieTableInsight,
+    RecurringCostInsight,
+    TableUsageProfile,
 )
 from dwh_auditor.models.table import TableStorage
 
@@ -14,6 +15,7 @@ __all__ = [
     "CostInsight",
     "FullScanInsight",
     "QueryJob",
+    "RecurringCostInsight",
     "TableStorage",
-    "ZombieTableInsight",
+    "TableUsageProfile",
 ]

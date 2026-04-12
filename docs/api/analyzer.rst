@@ -23,6 +23,16 @@ dwh_auditor.analyzer — DWH コスト分析・セキュリティ診断ロジッ
 
 ----
 
+定常コスト分析 (``analyzer.recurring``)
+=========================================
+
+.. automodule:: dwh_auditor.analyzer.recurring
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+----
+
 フルスキャン検知 (``analyzer.scan``)
 ======================================
 

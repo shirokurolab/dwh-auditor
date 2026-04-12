@@ -49,3 +49,25 @@ CI/CD パイプラインの Artifact として保存したり、
    :members:
    :undoc-members:
    :show-inheritance:
+
+----
+
+JSON レポート生成 (``reporter.json_out``)
+===============================================
+
+システム連携・二次解析用の JSON 形式で監査結果を出力します。
+jq 等でのパースや、ダッシュボードへの直接取り込みに適しています。
+
+使用例:
+
+.. code-block:: python
+
+   from dwh_auditor.reporter.json_out import generate_json_report
+
+   json_str = generate_json_report(result)
+   print(json_str)
+
+.. automodule:: dwh_auditor.reporter.json_out
+   :members:
+   :undoc-members:
+   :show-inheritance:

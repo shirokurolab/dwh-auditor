@@ -93,5 +93,6 @@ class TestAuditResult:
         )
         assert result.analyzed_days == 30
         assert result.top_expensive_queries == []
+        assert result.recurring_expensive_queries == []
         assert result.full_scans == []
-        assert result.zombie_tables == []
+        assert result.table_profiles == []
