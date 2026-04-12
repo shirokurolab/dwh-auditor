@@ -1,0 +1,206 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../architecture.rst:3
+msgid "アーキテクチャ設計 — DWH 監査の 3 層分離アーキテクチャ"
+msgstr ""
+
+#: ../../architecture.rst:5
+msgid "dwh-auditor は **「関心の分離 (Separation of Concerns)」** を厳格に適用した 3 層アーキテクチャで設計されています。 この設計により、BigQuery 固有のコードを一か所に集約し、 将来 Snowflake や Redshift などの DWH に拡張する際も 最小限の変更で対応できます。"
+msgstr ""
+
+#: ../../architecture.rst:13
+msgid "全体の処理フロー"
+msgstr ""
+
+#: ../../architecture.rst:44
+msgid "各層の責務"
+msgstr ""
+
+#: ../../architecture.rst:47
+msgid "Extractor 層 (``src/dwh_auditor/extractor/``)"
+msgstr ""
+
+#: ../../architecture.rst:49
+msgid "**BigQuery との唯一の接点** です。 ``INFORMATION_SCHEMA`` へのクエリ発行と、その結果を Pydantic モデルへの変換のみを担います。"
+msgstr ""
+
+#: ../../architecture.rst:55
+msgid "``google.cloud.bigquery`` ライブラリの import は **``extractor/bigquery.py`` のみ** に許可されています。 他のモジュールからは絶対にインポートしてはなりません。"
+msgstr ""
+
+#: ../../architecture.rst:59
+msgid "取得するデータソース:"
+msgstr ""
+
+#: ../../architecture.rst:65
+msgid "INFORMATION_SCHEMA ビュー"
+msgstr ""
+
+#: ../../architecture.rst:66
+msgid "取得内容"
+msgstr ""
+
+#: ../../architecture.rst:67
+msgid "``INFORMATION_SCHEMA.JOBS``"
+msgstr ""
+
+#: ../../architecture.rst:68
+msgid "過去 N 日間のクエリ実行履歴"
+msgstr ""
+
+#: ../../architecture.rst:69
+msgid "``INFORMATION_SCHEMA.TABLE_STORAGE``"
+msgstr ""
+
+#: ../../architecture.rst:70
+msgid "テーブルごとのストレージ使用量"
+msgstr ""
+
+#: ../../architecture.rst:72
+msgid "提供する関数インターフェース:"
+msgstr ""
+
+#: ../../architecture.rst:82
+msgid "Analyzer 層 (``src/dwh_auditor/analyzer/``)"
+msgstr ""
+
+#: ../../architecture.rst:84
+msgid "Extractor から受け取った Pydantic モデルと、``config.yaml`` のしきい値を 突き合わせて診断を行う **純粋な Python ロジック** です。"
+msgstr ""
+
+#: ../../architecture.rst:87
+msgid "外部 API 通信を一切含まないため、単体テストが **ミリ秒単位** で完了します。"
+msgstr ""
+
+#: ../../architecture.rst:93
+#: ../../architecture.rst:114
+msgid "モジュール"
+msgstr ""
+
+#: ../../architecture.rst:94
+msgid "診断ロジック"
+msgstr ""
+
+#: ../../architecture.rst:95
+msgid "``analyzer/cost.py``"
+msgstr ""
+
+#: ../../architecture.rst:96
+msgid "高コストクエリの検知（スキャンバイト数 → USD 変換、Top-N ランキング）"
+msgstr ""
+
+#: ../../architecture.rst:97
+msgid "``analyzer/scan.py``"
+msgstr ""
+
+#: ../../architecture.rst:98
+msgid "フルスキャン検知（WHERE 句・パーティションフィルタの有無を正規表現で判定）"
+msgstr ""
+
+#: ../../architecture.rst:99
+msgid "``analyzer/zombie.py``"
+msgstr ""
+
+#: ../../architecture.rst:100
+msgid "ゾンビテーブル検知（ジョブ履歴の参照テーブルと突き合わせ）"
+msgstr ""
+
+#: ../../architecture.rst:101
+msgid "``analyzer/runner.py``"
+msgstr ""
+
+#: ../../architecture.rst:102
+msgid "上記 3 つを呼び出して ``AuditResult`` に集約"
+msgstr ""
+
+#: ../../architecture.rst:106
+msgid "Reporter 層 (``src/dwh_auditor/reporter/``)"
+msgstr ""
+
+#: ../../architecture.rst:108
+msgid "``AuditResult`` を受け取り、ユーザーに見せる形式に整形します。"
+msgstr ""
+
+#: ../../architecture.rst:115
+msgid "出力先"
+msgstr ""
+
+#: ../../architecture.rst:116
+msgid "``reporter/console.py``"
+msgstr ""
+
+#: ../../architecture.rst:117
+msgid "`Rich <https://rich.readthedocs.io/>`_ ライブラリによるターミナルへのカラー出力"
+msgstr ""
+
+#: ../../architecture.rst:118
+msgid "``reporter/markdown.py``"
+msgstr ""
+
+#: ../../architecture.rst:119
+msgid "``report.md`` の生成（CI/CD の Artifact として保存可能）"
+msgstr ""
+
+#: ../../architecture.rst:123
+msgid "内部データモデル"
+msgstr ""
+
+#: ../../architecture.rst:125
+msgid "各層の間のデータ受け渡しには Pydantic モデルを使用しています。 ``dict`` をそのまま受け渡すのではなく、型定義を持たせることで バグを防ぎ、エディタの補完を効かせます。"
+msgstr ""
+
+#: ../../architecture.rst:141
+msgid "詳細は :doc:`api/models` を参照してください。"
+msgstr ""
+
+#: ../../architecture.rst:145
+msgid "テスト戦略 — なぜ高速テストが可能なのか"
+msgstr ""
+
+#: ../../architecture.rst:147
+msgid "3 層分離の最大のメリットは **テストの書きやすさ** です。"
+msgstr ""
+
+#: ../../architecture.rst:150
+msgid "Analyzer 層のテスト"
+msgstr ""
+
+#: ../../architecture.rst:152
+msgid "Pydantic モデルにダミーデータを入れて関数を呼ぶだけです。 BigQuery のモックは **一切不要** で、46 テストが **0.35 秒以内** に完了します。"
+msgstr ""
+
+#: ../../architecture.rst:163
+msgid "Extractor 層のテスト"
+msgstr ""
+
+#: ../../architecture.rst:165
+msgid "``pytest-mock`` で ``google.cloud.bigquery.Client`` をパッチするだけです。"
+msgstr ""
+
+#: ../../architecture.rst:179
+msgid "拡張性 — 他 DWH への対応"
+msgstr ""
+
+#: ../../architecture.rst:181
+msgid "Extractor 層を差し替えるだけで、他のデータウェアハウスに対応できます。"
+msgstr ""
+
+#: ../../architecture.rst:190
+msgid "Analyzer 層と Reporter 層は **変更不要** です。"
+msgstr ""

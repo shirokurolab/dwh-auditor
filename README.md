@@ -1,80 +1,81 @@
 # 🚀 DWH-Auditor
 
-![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue)
-![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)
+[English](README.md) | [日本語](README.ja.md)
+
+![PyPI version](https://img.shields.io/badge/pypi-v0.2.0-blue)
+![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)
 
-**📚 公式ドキュメント:** [https://shirokurolab.github.io/dwh-auditor/](https://shirokurolab.github.io/dwh-auditor/)
+**📚 Official Documentation:** [https://shirokurolab.github.io/dwh-auditor/](https://shirokurolab.github.io/dwh-auditor/)
 
-**DWH-Auditor** は、BigQueryのメタデータを分析し、**「クラウド破産」を防ぐためのコスト最適化とデータガバナンス監査**を瞬時に行うオープンソースのCLIツールです。
+**DWH-Auditor** is an open-source CLI tool that parses BigQuery metadata to instantly perform **cost optimization and data governance auditing to prevent runaway cloud costs**.
 
-「誰がどんな重いクエリを投げているのか」「どのテーブルが使われていないのか」を可視化し、具体的なアクション（インサイト）を提示します。
+By visualizing exactly *who* is executing heavy queries and *which* tables are completely unused, it uncovers hidden financial waste and provides actionable insights.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output.png" alt="DWH-Auditor Console Report Sample">
+  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.0.png" alt="DWH-Auditor Console Report Sample">
 </p>
 
-## 💡 なぜ DWH-Auditor なのか？
+## 💡 Why DWH-Auditor?
 
-BigQueryは非常に強力ですが、従量課金の性質上、たった一つの非効率なクエリや、放置された不要なテーブルが毎月数万円〜数百万円の無駄なコストを生み出すことがあります。
+While BigQuery is extremely powerful, its pay-as-you-go pricing model means that a single inefficient query or an abandoned, massive table can stealthily generate thousands of dollars in wasted costs every month.
 
-DWH-Auditorは、複雑な設定なしに `INFORMATION_SCHEMA` を解析し、あなたのデータ基盤の「健康診断」を数秒で完了させます。**実際のテーブルデータには一切アクセスしないため、セキュリティの厳しい環境でも安全に実行できます。**
+DWH-Auditor analyzes your `INFORMATION_SCHEMA` seamlessly without any complex configurations, delivering a "health check" for your data infrastructure in seconds. **Because it never accesses your actual table data, it can be safely executed even in strict, highly secure enterprise environments.**
 
-## ✨ 主な機能
+## ✨ Key Features
 
-- 💸 **高コストクエリの特定:** 過去N日間の課金バイト数を集計し、コストの元凶となっているクエリTop10をリストアップします。
-- 🚨 **フルスキャン（アンチパターン）検知:** パーティション指定漏れなど、非効率なフルスキャンクエリを警告します。
-- 🧟 **ゾンビテーブルの発見:** 長期間誰からも参照されていないテーブルを特定し、ストレージコストの削減を促します。
-- 📊 **Markdownレポート出力:** CI/CD（GitHub Actions等）に組み込み、チーム全体に日次で監査レポートを共有できます。
+- 💸 **Identifying High-Cost Queries:** Aggregates billed bytes over the past N days and surfaces the Top 10 most expensive ad-hoc queries.
+- 🔄 **Recurring Execution Alerts:** Detects dashboards or batch processes that are running expensive queries on a recurring schedule.
+- 🚨 **Detecting Full Table Scans (Anti-patterns):** Warns you about inefficient queries, such as full table scans caused by missing partition filters.
+- 🧟 **Identifying Zombie Tables:** Locates storage-heavy tables that haven't been queried for a long time, enabling swift storage cost reductions.
+- 📊 **Multi-Format Reporting:** Integrates effortlessly into your CI/CD pipelines (e.g. GitHub Actions) to share daily audit reports in Markdown or JSON to your team.
 
-## 🛠 クイックスタート
+## 🛠 Quickstart
 
-### 1. インストール
+### 1. Installation
 
 ```bash
 pip install dwh-auditor
 ```
 
-### 2. 初期設定
+### 2. Initialization
 
 ```bash
 dwh-auditor init
 ```
 
-カレントディレクトリに config.yaml が生成されます。必要に応じてコスト単価やしきい値を調整してください。
+A `config.yaml` file will be generated in the current directory. Adjust the cost rates and warning thresholds as necessary to fit your environment.
 
-### 3. 監査の実行
+### 3. Execution
 
 ```bash
-# 例: my-gcp-project の過去30日間を分析
+# Example: Analyze the past 30 days for my-gcp-project
 dwh-auditor analyze --project my-gcp-project --days 30 --output console
 ```
 
-### 4. 🔐 セキュリティについて (Zero Data Access)
+### 4. 🔐 Security (Zero Data Access)
 
-DWH-Auditor は、BigQueryのメタデータ（INFORMATION_SCHEMA）のみを読み取ります。ユーザーの実際のテーブルデータ（レコードの中身）を読み取ることは一切ありません。 必要なIAM権限は最小限（roles/bigquery.metadataViewer, roles/bigquery.resourceViewer）で動作します。
+DWH-Auditor strictly reads metadata (`INFORMATION_SCHEMA`) from BigQuery and **never** reads actual table records. It operates flawlessly under the principle of least privilege, requiring only `roles/bigquery.metadataViewer` and `roles/bigquery.resourceViewer`.
 
-### 5. 💼 エンタープライズサポート / データ基盤コンサルティング
+### 5. 💼 Enterprise Support & Data Infrastructure Consulting
 
-DWH-Auditor は、データ基盤の「課題を発見する」ための強力な健康診断ツールです。しかし、発見された重症な課題（複雑なデータモデルの再設計や、大規模なクエリのリファクタリング）を自社リソースだけで解決するのが難しいケースも少なくありません。
+DWH-Auditor is a powerful diagnostic tool for uncovering issues in your data platform. However, resolving severe structural issues—such as redesigning complex data models or refactoring massive query pipelines—can often be challenging to handle with internal resources alone.
 
-もし以下のようなお悩みがございましたら、本ツールの開発者（データエンジニア）による直接の支援・コンサルティングをご提供可能です。
+If you are facing these challenges, the developer behind this tool (Data Engineer) offers direct support and professional consulting:
 
-「DWH-Auditorで大量のフルスキャンが検知されたが、既存のBIやETLを壊さずにどうパーティション設計を直せばいいか分からない」
+- "DWH-Auditor detected massive full table scans, but we don't know how to redesign partitions without breaking existing BI/ETL workflows."
+- "We want to migrate a collection of legacy SQL scripts to modern data modeling using dbt."
+- "We need to integrate this tool into our CI/CD pipeline to establish continuous data governance."
 
-「レガシーなSQL群を、dbtを用いたモダンなデータモデリングに移行したい」
+### 6. 👉 Contact Us
 
-「本ツールを自社のCI/CDパイプラインに組み込み、継続的なデータガバナンス体制を構築したい」
+Feel free to reach out at shirokurolab.oss.tools@gmail.com. Initial consultations and high-level cost reduction assessments are provided completely free of charge.
 
-### 6. 👉 ご相談・お問い合わせ:
+### 7. 🤝 Contributing
 
-shirokurolab.oss.tools@gmail.com までお気軽にご連絡ください。初回ヒアリング・コスト削減ポテンシャルの簡易アセスメントは無料で承ります。
+We heartily welcome bug reports and Pull Requests! If you want to contribute, please check `CONTRIBUTING.md` for instructions on setting up your development environment.
 
-### 7. 🤝 貢献について (Contributing)
-
-バグ報告、機能追加のPull Requestは大歓迎です！開発環境のセットアップ方法については CONTRIBUTING.md をご覧ください。
-
-### 8. 📜 ライセンス
+### 8. 📜 License
 
 ## MIT License

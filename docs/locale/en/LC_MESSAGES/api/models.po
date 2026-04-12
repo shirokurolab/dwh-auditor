@@ -1,0 +1,116 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:10+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../api/models.rst:3
+msgid "dwh_auditor.models — DWH 監査用内部データモデル (Pydantic)"
+msgstr ""
+
+#: ../../api/models.rst:5
+msgid ""
+"``dwh_auditor.models`` パッケージは、各層（Extractor → Analyzer → Reporter）が "
+"データを受け渡す際の「型契約」を定義します。 ``dict`` 型を直接受け渡すのではなく Pydantic モデルを使うことで、 "
+"静的型チェックとランタイムバリデーションの両方を実現します。"
+msgstr ""
+
+#: ../../api/models.rst:13
+msgid "クエリジョブモデル (``models.job``)"
+msgstr ""
+
+#: dwh_auditor.models.job:1 of
+msgid "BigQuery クエリジョブのデータモデル."
+msgstr ""
+
+#: dwh_auditor.models.job.QueryJob:1 of
+msgid "BigQuery のクエリジョブ履歴を表すモデル."
+msgstr ""
+
+#: dwh_auditor.models.job.QueryJob:3 of
+msgid ""
+"Extractor 層が BQ の INFORMATION_SCHEMA.JOBS から取得し、 Analyzer "
+"層に渡す際のデータ契約として機能します。"
+msgstr ""
+
+#: ../../api/models.rst
+msgid "パラメータ"
+msgstr ""
+
+#: dwh_auditor.models.job.QueryJob.model_config:1
+#: dwh_auditor.models.result.AuditResult.model_config:1
+#: dwh_auditor.models.result.CostInsight.model_config:1
+#: dwh_auditor.models.result.FullScanInsight.model_config:1
+#: dwh_auditor.models.result.ZombieTableInsight.model_config:1
+#: dwh_auditor.models.table.TableStorage.model_config:1 of
+msgid ""
+"Configuration for the model, should be a dictionary conforming to "
+"[`ConfigDict`][pydantic.config.ConfigDict]."
+msgstr ""
+
+#: ../../api/models.rst:23
+msgid "テーブルストレージモデル (``models.table``)"
+msgstr ""
+
+#: dwh_auditor.models.table:1 of
+msgid "BigQuery テーブルストレージのデータモデル."
+msgstr ""
+
+#: dwh_auditor.models.table.TableStorage:1 of
+msgid "BigQuery テーブルごとのストレージ情報を表すモデル."
+msgstr ""
+
+#: dwh_auditor.models.table.TableStorage:3 of
+msgid ""
+"Extractor 層が BQ の INFORMATION_SCHEMA.TABLE_STORAGE から取得し、 Analyzer "
+"層（ゾンビテーブル検知）に渡す際のデータ契約として機能します。"
+msgstr ""
+
+#: dwh_auditor.models.table.TableStorage.full_table_id:1 of
+msgid "プロジェクト・データセット・テーブル名を結合した完全修飾名."
+msgstr ""
+
+#: ../../api/models.rst:33
+msgid "分析結果モデル (``models.result``)"
+msgstr ""
+
+#: dwh_auditor.models.result:1 of
+msgid "分析結果のデータモデル."
+msgstr ""
+
+#: dwh_auditor.models.result:3 of
+msgid "Analyzer 層が Reporter 層に渡す診断結果の型定義です。"
+msgstr ""
+
+#: dwh_auditor.models.result.CostInsight:1 of
+msgid "高コストクエリの分析結果."
+msgstr ""
+
+#: dwh_auditor.models.result.FullScanInsight:1 of
+msgid "フルスキャンと判定されたクエリの分析結果."
+msgstr ""
+
+#: dwh_auditor.models.result.ZombieTableInsight:1 of
+msgid "使われていないテーブルの分析結果."
+msgstr ""
+
+#: dwh_auditor.models.result.AuditResult:1 of
+msgid "Analyzer 層が最終的に出力する総合監査結果レポート."
+msgstr ""
+

@@ -1,0 +1,217 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../configuration.rst:3
+msgid "設定ファイル (config.yaml) — コスト単価・しきい値の DWH 監査設定"
+msgstr ""
+
+#: ../../configuration.rst:5
+msgid ""
+"dwh-auditor の各診断ルールは、プロジェクト固有の基準に合わせて ``config.yaml`` でカスタマイズできます。 "
+"「何を異常とみなすか」はビジネス要件によって異なるため、 すべての値をユーザーが上書きできる設計になっています。"
+msgstr ""
+
+#: ../../configuration.rst:12
+msgid "設定ファイルの生成"
+msgstr ""
+
+#: ../../configuration.rst:18
+msgid "カレントディレクトリに ``config.yaml`` が生成されます。 既にファイルが存在する場合は上書きされません。"
+msgstr ""
+
+#: ../../configuration.rst:23
+msgid ""
+"``config.yaml`` は Git リポジトリに含めても問題ありません。 ただし、機密情報（サービスアカウントキーなど）は "
+"**絶対に含めないでください。**"
+msgstr ""
+
+#: ../../configuration.rst:28
+msgid "設定ファイルの全スキーマ"
+msgstr ""
+
+#: ../../configuration.rst:58
+msgid "各設定値の詳細"
+msgstr ""
+
+#: ../../configuration.rst:61
+msgid "pricing セクション"
+msgstr ""
+
+#: ../../configuration.rst:64
+msgid "``pricing.tb_scan_usd``"
+msgstr ""
+
+#: ../../configuration.rst:66
+msgid "1TB スキャンあたりのオンデマンド料金（USD）です。 コスト推定の計算式は以下の通りです。"
+msgstr ""
+
+#: ../../configuration.rst:76 ../../configuration.rst:101
+#: ../../configuration.rst:116 ../../configuration.rst:132
+#: ../../configuration.rst:151
+msgid "キー"
+msgstr ""
+
+#: ../../configuration.rst:77 ../../configuration.rst:102
+#: ../../configuration.rst:117 ../../configuration.rst:133
+#: ../../configuration.rst:152
+msgid "デフォルト値"
+msgstr ""
+
+#: ../../configuration.rst:78 ../../configuration.rst:118
+#: ../../configuration.rst:134 ../../configuration.rst:153
+msgid "説明"
+msgstr ""
+
+#: ../../configuration.rst:79
+msgid "``tb_scan_usd``"
+msgstr ""
+
+#: ../../configuration.rst:80
+msgid "``6.25``"
+msgstr ""
+
+#: ../../configuration.rst:81
+msgid "BigQuery オンデマンドの標準料金に対応"
+msgstr ""
+
+#: ../../configuration.rst:85
+msgid ""
+"Editions（Flex Slots / Standard / Enterprise）を利用している場合、 スロット時間課金モデルになります。 "
+"この場合は ``tb_scan_usd: 0.0`` に設定し、コスト分析を参考値として使用してください。"
+msgstr ""
+
+#: ../../configuration.rst:91
+msgid "thresholds セクション"
+msgstr ""
+
+#: ../../configuration.rst:94
+msgid "``thresholds.ignore_full_scan_under_gb``"
+msgstr ""
+
+#: ../../configuration.rst:96
+msgid "この GB 数以下のスキャンは **フルスキャン警告から除外** されます。"
+msgstr ""
+
+#: ../../configuration.rst:103
+msgid "推奨用途"
+msgstr ""
+
+#: ../../configuration.rst:104
+msgid "``ignore_full_scan_under_gb``"
+msgstr ""
+
+#: ../../configuration.rst:105
+msgid "``1.0``"
+msgstr ""
+
+#: ../../configuration.rst:106
+msgid "小規模マスターテーブル（都道府県テーブルなど）のスキャンを無視する"
+msgstr ""
+
+#: ../../configuration.rst:109
+msgid "``thresholds.top_expensive_queries_limit``"
+msgstr ""
+
+#: ../../configuration.rst:111
+msgid "高コストクエリの報告件数の上限です。"
+msgstr ""
+
+#: ../../configuration.rst:119
+msgid "``top_expensive_queries_limit``"
+msgstr ""
+
+#: ../../configuration.rst:120
+msgid "``10``"
+msgstr ""
+
+#: ../../configuration.rst:121
+msgid "コンソール・レポートに表示するクエリの最大件数"
+msgstr ""
+
+#: ../../configuration.rst:124
+msgid "``thresholds.zombie_table_days``"
+msgstr ""
+
+#: ../../configuration.rst:126
+msgid "この日数以上、一度も ``SELECT`` で参照されていないテーブルを **ゾンビテーブル** として报告します。"
+msgstr ""
+
+#: ../../configuration.rst:135
+msgid "``zombie_table_days``"
+msgstr ""
+
+#: ../../configuration.rst:136
+msgid "``90``"
+msgstr ""
+
+#: ../../configuration.rst:137
+msgid "過去 90 日間の JOBS ビューにテーブルが現れなければゾンビ判定"
+msgstr ""
+
+#: ../../configuration.rst:141
+msgid "dbt セクション（将来の拡張用）"
+msgstr ""
+
+#: ../../configuration.rst:143
+msgid ""
+"dbt が発行するクエリを BigQuery のジョブラベルで識別し、 dbt モデルごとのコスト集計を行う設定です。 現バージョンでは "
+"``enabled: false`` のままにしてください。"
+msgstr ""
+
+#: ../../configuration.rst:154
+msgid "``dbt.enabled``"
+msgstr ""
+
+#: ../../configuration.rst:155
+msgid "``false``"
+msgstr ""
+
+#: ../../configuration.rst:156
+msgid "dbt 連携を有効にするか"
+msgstr ""
+
+#: ../../configuration.rst:157
+msgid "``dbt.job_label_key``"
+msgstr ""
+
+#: ../../configuration.rst:158
+msgid "``\"dbt_model\"``"
+msgstr ""
+
+#: ../../configuration.rst:159
+msgid "dbt モデルを識別するラベルキー名"
+msgstr ""
+
+#: ../../configuration.rst:163
+msgid "Pydantic スキーマ"
+msgstr ""
+
+#: ../../configuration.rst:165
+msgid ""
+"設定ファイルは Python 側で Pydantic モデル :class:`dwh_auditor.config.AppConfig` に "
+"パースされるため、不正な値（負の料金、0 件のしきい値など）は 起動時にバリデーションエラーとして検出されます。"
+msgstr ""
+
+#: ../../configuration.rst:177
+msgid "詳細は :doc:`api/config` を参照してください。"
+msgstr ""
+

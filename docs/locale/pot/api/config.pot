@@ -1,0 +1,96 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:10+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../api/config.rst:3
+msgid "dwh_auditor.config — 設定ファイルの読み込みと DWH 設定管理"
+msgstr ""
+
+#: ../../api/config.rst:5
+msgid "``dwh_auditor.config`` モジュールは、``config.yaml`` を読み込み Pydantic モデルとして型安全に管理します。 外部から取得した設定値は即座にバリデーションされるため、 不正な値（負のコスト単価など）は起動時に検出されます。"
+msgstr ""
+
+#: ../../api/config.rst:10
+msgid "詳細な設定値の説明は :doc:`../configuration` を参照してください。"
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config:1
+msgid "設定ファイル (config.yaml) の読み込みとパース."
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.PricingConfig:1
+msgid "コスト計算の単価設定."
+msgstr ""
+
+#: ../../api/config.rst:0
+msgid "パラメータ"
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.AppConfig.model_config:1
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.DbtConfig.model_config:1
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.PricingConfig.model_config:1
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.ThresholdsConfig.model_config:1
+msgid "Configuration for the model, should be a dictionary conforming to [`ConfigDict`][pydantic.config.ConfigDict]."
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.ThresholdsConfig:1
+msgid "警告しきい値の設定."
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.DbtConfig:1
+msgid "dbt 連携設定 (将来拡張用)."
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.AppConfig:1
+msgid "設定ファイル全体のスキーマ."
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.load_config:1
+msgid "YAML 設定ファイルを読み込み AppConfig に変換して返す."
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.load_config:3
+msgid "設定ファイルのパス (例: \"config.yaml\")"
+msgstr ""
+
+#: ../../api/config.rst:0
+msgid "戻り値"
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.load_config:5
+msgid "パース済みの AppConfig オブジェクト"
+msgstr ""
+
+#: ../../api/config.rst:0
+msgid "例外"
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.load_config:7
+msgid "指定されたパスにファイルが存在しない場合"
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.load_config:8
+msgid "YAML のパースに失敗した場合"
+msgstr ""
+
+#: ../../../src/dwh_auditor/config.py:docstring of dwh_auditor.config.load_config:9
+msgid "設定値がスキーマに合致しない場合"
+msgstr ""
+
+#: ../../api/config.rst:0
+msgid "戻り値の型"
+msgstr ""
