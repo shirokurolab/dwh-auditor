@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -108,3 +109,18 @@ html_theme_options = {
 # コードブロックのコピーボタン設定
 copybutton_prompt_text = r"\\$ |>>> |\\.\\.\\. "
 copybutton_prompt_is_regexp = True
+
+# ---------------------------------------------------------------------------
+# Google Analytics 4
+# ---------------------------------------------------------------------------
+ga_id = os.environ.get("GA_ID")
+if ga_id:
+    html_js_files = [
+        (f"https://www.googletagmanager.com/gtag/js?id={ga_id}", {"async": "async"}),
+        (None, {"body": f"""
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){{dataLayer.push(arguments);}}
+            gtag('js', new Date());
+            gtag('config', '{ga_id}');
+        """}),
+    ]

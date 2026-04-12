@@ -41,6 +41,8 @@ jobs:
 
       # ── Sphinx ビルド ───────────────────────────────────────────────────
       - name: Build HTML documentation
+        env:
+          GA_ID: G-DGY5EE667H
         run: |
           uv run sphinx-build \
             -b html \
