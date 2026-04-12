@@ -144,7 +144,7 @@ def _handle_bq_error(func: F) -> F:
 
 
 class BigQueryExtractor:
-    """BigQuery メタデータ抽出クラス (v0.2.2 API 準拠)."""
+    """BigQuery メタデータ抽出クラス (v0.2.3 API 準拠)."""
 
     def __init__(self, target_project_id: str, job_project_ids: list[str], region: str) -> None:
         self._target_project_id = target_project_id
