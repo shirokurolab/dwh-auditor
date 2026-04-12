@@ -34,6 +34,12 @@ class ThresholdsConfig(BaseModel):
         description="ゾンビテーブルとみなすまでの未参照日数",
         gt=0,
     )
+    full_scan_ratio_threshold: float = Field(
+        default=0.90,
+        description="課金バイト数がテーブル総サイズの何割を超えたらフルスキャンとみなすか (0.0〜1.0)",
+        ge=0.0,
+        le=1.0,
+    )
 
 
 class DbtConfig(BaseModel):

@@ -1,6 +1,6 @@
 # 🚀 DWH-Auditor
 
-![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue)
+![PyPI version](https://img.shields.io/badge/pypi-v0.2.0-blue)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)
@@ -12,7 +12,7 @@
 「誰がどんな重いクエリを投げているのか」「どのテーブルが使われていないのか」を可視化し、具体的なアクション（インサイト）を提示します。
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output.png" alt="DWH-Auditor Console Report Sample">
+  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.0.png" alt="DWH-Auditor Console Report Sample">
 </p>
 
 ## 💡 なぜ DWH-Auditor なのか？
