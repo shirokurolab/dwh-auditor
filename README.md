@@ -2,7 +2,7 @@
 
 [English](README.md) | [日本語](README.ja.md)
 
-![PyPI version](https://img.shields.io/badge/pypi-v0.2.0-blue)
+![PyPI version](https://img.shields.io/badge/pypi-v0.2.1-blue)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)
@@ -11,10 +11,10 @@
 
 **DWH-Auditor** is an open-source CLI tool that parses BigQuery metadata to instantly perform **cost optimization and data governance auditing to prevent runaway cloud costs**.
 
-By visualizing exactly *who* is executing heavy queries and *which* tables are completely unused, it uncovers hidden financial waste and provides actionable insights.
+By visualizing exactly _who_ is executing heavy queries and _which_ tables are completely unused, it uncovers hidden financial waste and provides actionable insights.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.0.png" alt="DWH-Auditor Console Report Sample">
+  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.1.png" alt="DWH-Auditor Console Report Sample">
 </p>
 
 ## 💡 Why DWH-Auditor?
