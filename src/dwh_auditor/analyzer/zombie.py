@@ -7,7 +7,7 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from typing import Any
+from typing import Any, Optional
 
 from dwh_auditor.config import AppConfig
 from dwh_auditor.models.result import TableUsageProfile
@@ -25,7 +25,7 @@ def analyze_table_usage(
     tables: list[TableStorage],
     usage_stats: dict[str, dict[str, Any]],
     config: AppConfig,
-    now: datetime | None = None,
+    now: Optional[datetime] = None,
 ) -> list[TableUsageProfile]:
     """各テーブルのプロファイル（利用状況とゾンビ判定結果）を返す.
 

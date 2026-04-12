@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import sys
 from datetime import datetime, timezone
-from typing import Any, Callable, TypeVar, cast
+from typing import Any, Callable, Optional, TypeVar, cast
 
 import google.cloud.bigquery as bq
 from google.api_core.exceptions import Forbidden
@@ -94,7 +94,7 @@ WHERE deleted = FALSE
 """
 
 
-def _parse_referenced_tables(json_str: str | None) -> list[str]:
+def _parse_referenced_tables(json_str: Optional[str]) -> list[str]:
     """JSON 文字列からテーブルIDの完全修飾名のリストを構築する."""
     import json
 

@@ -6,6 +6,7 @@ Analyzer 層が Reporter 層に渡す診断結果の型定義です。
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Optional
 
 from pydantic import BaseModel, Field
 
@@ -33,7 +34,7 @@ class TableUsageProfile(BaseModel):
 
     table: TableStorage = Field(description="対象のテーブル")
     is_zombie: bool = Field(description="設定された日数以上未使用（ゾンビ）であるか")
-    last_accessed_at: datetime | None = Field(default=None, description="最後に参照された日時")
+    last_accessed_at: Optional[datetime] = Field(default=None, description="最後に参照された日時")
     top_users: list[str] = Field(default_factory=list, description="頻繁にアクセスしているユーザー群")
     access_count_30d: int = Field(default=0, description="指定期間内のアクセス回数")
     size_gb: float = Field(description="テーブルの論理ストレージサイズ (GB)")
