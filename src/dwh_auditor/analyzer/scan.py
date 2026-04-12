@@ -9,12 +9,12 @@ import re
 from dwh_auditor.config import AppConfig
 from dwh_auditor.models.job import QueryJob
 from dwh_auditor.models.result import FullScanInsight
+from dwh_auditor.models.table import TableStorage
 
 # 1 GB をバイトに変換する定数
 _BYTES_PER_GB: float = 1024**3
 
-# パーティション絞り込みに使われる典型的なパターン
-# WHERE 句に日付フィルタ or _PARTITIONTIME / _PARTITIONDATE が含まれているか
+# パーティション絞り込みに使われる典型的なパターン (フォールバック用)
 _PARTITION_FILTER_PATTERN = re.compile(
     r"WHERE\s.*(partition|_PARTITIONTIME|_PARTITIONDATE|\d{4}-\d{2}-\d{2})",
     re.IGNORECASE | re.DOTALL,
@@ -26,40 +26,34 @@ def _bytes_to_gb(bytes_value: int) -> float:
     return bytes_value / _BYTES_PER_GB
 
 
-def _is_full_scan(query: str) -> bool:
-    """クエリがフルスキャンを行っている可能性があるか判定する.
-
-    簡易判定ルール:
-    - WHERE 句が存在しない、または
-    - WHERE 句にパーティション指定パターンが含まれていない
-
-    Args:
-        query: SQL クエリ文字列
-
-    Returns:
-        フルスキャンの可能性がある場合 True
-    """
+def _is_full_scan_fallback(query: str) -> bool:
+    """クエリがフルスキャンを行っている可能性があるか、文字列で簡易判定する.フォールバック用."""
     query_upper = query.upper()
     if "WHERE" not in query_upper:
         return True
-    # パーティションフィルタや日付フィルタが見当たらない場合もフルスキャン扱い
     return not bool(_PARTITION_FILTER_PATTERN.search(query))
 
 
-def detect_full_scans(jobs: list[QueryJob], config: AppConfig) -> list[FullScanInsight]:
+def detect_full_scans(
+    jobs: list[QueryJob], tables: list[TableStorage], config: AppConfig
+) -> list[FullScanInsight]:
     """フルスキャンの可能性があるクエリを検知する.
 
-    ignore_full_scan_under_gb 以下のスキャンは警告から除外します
-    (小規模マスターテーブルのスキャンで警告疲れを防ぐため)。
+    バイト比率バリデーション方式:
+    クエリの課金バイト数が参照テーブルの物理サイズの 90% 以上ならフルスキャンとみなす。
 
     Args:
-        jobs: QueryJob のリスト
-        config: AppConfig オブジェクト
+        jobs: Extractor から抽出したパース対象のジョブ
+        tables: テーブルサイズ情報をルックアップするためのリスト
+        config: しきい値
 
     Returns:
-        FullScanInsight のリスト (スキャン GB 降順)
+        FullScanInsight のリスト
     """
     ignore_threshold_bytes = config.thresholds.ignore_full_scan_under_gb * _BYTES_PER_GB
+    ratio_threshold = config.thresholds.full_scan_ratio_threshold
+
+    table_size_map = {t.full_table_id: t.total_logical_bytes for t in tables}
 
     insights: list[FullScanInsight] = []
     for job in jobs:
@@ -67,7 +61,28 @@ def detect_full_scans(jobs: list[QueryJob], config: AppConfig) -> list[FullScanI
             continue
         if job.cache_hit:
             continue
-        if _is_full_scan(job.query):
+
+        total_referenced_size = 0
+        cannot_calculate_size = False
+        
+        if not job.referenced_tables:
+            cannot_calculate_size = True
+        else:
+            for ref in job.referenced_tables:
+                if ref not in table_size_map or table_size_map[ref] <= 0:
+                    cannot_calculate_size = True
+                    break
+                total_referenced_size += table_size_map[ref]
+
+        is_full_scan = False
+        if cannot_calculate_size or total_referenced_size == 0:
+            is_full_scan = _is_full_scan_fallback(job.query)
+        else:
+            ratio = job.total_bytes_billed / total_referenced_size
+            if ratio >= ratio_threshold:
+                is_full_scan = True
+
+        if is_full_scan:
             insights.append(
                 FullScanInsight(
                     job=job,

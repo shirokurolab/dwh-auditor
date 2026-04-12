@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import shutil
+import sys
 from pathlib import Path
 from typing import Annotated
 
@@ -17,6 +18,7 @@ from dwh_auditor.analyzer.runner import run_analysis
 from dwh_auditor.config import load_config
 from dwh_auditor.extractor.bigquery import BigQueryExtractor
 from dwh_auditor.reporter.console import print_to_console
+from dwh_auditor.reporter.json_out import generate_json_report
 from dwh_auditor.reporter.markdown import generate_markdown_report
 
 app = typer.Typer(
@@ -53,8 +55,6 @@ def init(
         )
         raise typer.Exit(code=1)
 
-    # パッケージインストール後は config_template.yaml が同梱されていない場合があるため
-    # importlib.resources で取得する方法も将来的に検討する
     if not _TEMPLATE_PATH.exists():
         typer.echo(
             f"❌ テンプレートファイルが見つかりません: {_TEMPLATE_PATH}",
@@ -70,8 +70,16 @@ def init(
 def analyze(
     project: Annotated[
         str,
-        typer.Option("--project", "-p", help="分析対象の GCP プロジェクト ID"),
+        typer.Option("--project", "-p", help="分析対象(テーブルが存在する)の GCP プロジェクト ID"),
     ],
+    job_projects: Annotated[
+        str,
+        typer.Option(
+            "--job-projects",
+            "-jp",
+            help="クエリが実行されるプロジェクトのカンマ区切りリスト (未指定の場合は project と同じ)",
+        ),
+    ] = "",
     region: Annotated[
         str,
         typer.Option(
@@ -93,7 +101,7 @@ def analyze(
         typer.Option(
             "--output",
             "-o",
-            help="出力形式: 'console' または 'markdown'",
+            help="出力形式: 'console', 'markdown', 'json'",
         ),
     ] = "console",
     report_path: Annotated[
@@ -101,23 +109,22 @@ def analyze(
         typer.Option("--report-path", help="Markdown レポートの出力先パス"),
     ] = "report.md",
 ) -> None:
-    """BigQuery のメタデータを分析し、コスト削減のインサイトを抽出します.
+    """BigQuery のメタデータを分析し、コスト削減のインサイトを抽出します."""
+    is_json = (output == "json")
 
-    使用例:
-        dwh-auditor analyze --project my-gcp-project --days 30 --output console
-        dwh-auditor analyze --project my-gcp-project --region region-asia-northeast1 --output markdown
-    """
-    typer.echo(f"🔍 プロジェクト '{project}' ({region}) の過去 {days} 日間の監査を開始します...")
+    if not is_json:
+        typer.echo(f"🔍 プロジェクト '{project}' ({region}) の過去 {days} 日間の監査を開始します...")
 
     # 1. 設定ファイルの読み込み
     config_file = Path(config_path)
     if not config_file.exists():
-        typer.echo(
-            f"⚠️  設定ファイル '{config_path}' が見つかりません。"
-            " デフォルト設定で実行します。\n"
-            "   `dwh-auditor init` でデフォルト設定ファイルを生成できます。",
-            err=True,
-        )
+        if not is_json:
+            typer.echo(
+                f"⚠️  設定ファイル '{config_path}' が見つかりません。"
+                " デフォルト設定で実行します。\n"
+                "   `dwh-auditor init` でデフォルト設定ファイルを生成できます。",
+                err=True,
+            )
         from dwh_auditor.config import AppConfig
 
         config = AppConfig()
@@ -128,27 +135,41 @@ def analyze(
             typer.echo(f"❌ 設定ファイルの読み込みに失敗しました: {e}", err=True)
             raise typer.Exit(code=1) from e
 
+    # job_projects のパース
+    jp_list = [p.strip() for p in job_projects.split(",")] if job_projects else [project]
+
+    if not is_json:
+        typer.echo(f"📡 BigQuery からメタデータを取得中... (Job Projects: {', '.join(jp_list)})")
+    
     # 2. Extractor: BQ からデータ取得
-    typer.echo("📡 BigQuery からメタデータを取得中...")
     try:
-        extractor = BigQueryExtractor(project_id=project, region=region)
-        jobs = extractor.get_job_history(days=days)
+        extractor = BigQueryExtractor(
+            target_project_id=project, 
+            job_project_ids=jp_list, 
+            region=region
+        )
+        # 用途別に最適化されたクエリを発行する
+        top_cost_jobs = extractor.get_top_cost_jobs(days=days, limit=config.thresholds.top_expensive_queries_limit)
+        heavy_scan_jobs = extractor.get_heavy_scan_jobs(
+            days=days, 
+            min_scanned_bytes=int(config.thresholds.ignore_full_scan_under_gb * (1024**3))
+        )
+        recurring_stats = extractor.get_recurring_cost_jobs(days=days)
+        table_usages = extractor.get_table_usage_stats(days=days)
         tables = extractor.get_table_storage()
     except Exception as e:
         typer.echo(f"❌ BigQuery へのアクセスに失敗しました: {e}", err=True)
-        typer.echo(
-            "  認証情報を確認してください: "
-            "GOOGLE_APPLICATION_CREDENTIALS または `gcloud auth application-default login`",
-            err=True,
-        )
         raise typer.Exit(code=1) from e
 
-    typer.echo(f"✅ 取得完了: ジョブ {len(jobs):,} 件 / テーブル {len(tables):,} 件")
-
+    if not is_json:
+        typer.echo("🔬 分析中...")
+        
     # 3. Analyzer: 診断の実行
-    typer.echo("🔬 分析中...")
     result = run_analysis(
-        jobs=jobs,
+        top_cost_jobs=top_cost_jobs,
+        heavy_scan_jobs=heavy_scan_jobs,
+        recurring_stats=recurring_stats,
+        table_usages=table_usages,
         tables=tables,
         config=config,
         analyzed_days=days,
@@ -159,6 +180,9 @@ def analyze(
     if output == "markdown":
         generate_markdown_report(result, filepath=report_path)
         typer.echo(f"📄 Markdown レポートを生成しました: {report_path}")
+    elif output == "json":
+        # jsonの場合は標準出力にjson文字だけを出力する
+        print(generate_json_report(result))
     else:
         print_to_console(result)
 
