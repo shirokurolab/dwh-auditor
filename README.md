@@ -1,6 +1,6 @@
 # 🚀 DWH-Auditor
 
-![PyPI version](https://img.shields.io/badge/pypi-v0.1.0-blue)
+![PyPI version](https://img.shields.io/badge/pypi-v0.2.0-blue)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)
