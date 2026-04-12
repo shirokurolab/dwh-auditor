@@ -11,7 +11,8 @@
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-*(Mac/Linuxの場合。Windows等は[公式ドキュメント](https://docs.astral.sh/uv/getting-started/installation/)をご参照ください)*
+
+_(Mac/Linuxの場合。Windows等は[公式ドキュメント](https://docs.astral.sh/uv/getting-started/installation/)をご参照ください)_
 
 ### 2. リポジトリのクローンと依存関係のインストール
 
@@ -95,4 +96,4 @@ uv run pytest
 
 アクション: メンテナがPRを main ブランチにマージする。
 
-内容: マージ後、タグ付け（例: v0.2.0）を行うことで、GitHub Actions経由でPyPIへ自動リリースされ、世界中のユーザーが pip install (または uv pip install) できるようになります。
+内容: マージ後、タグ付け（例: v0.2.1）を行うことで、GitHub Actions経由でPyPIへ自動リリースされ、世界中のユーザーが pip install (または uv pip install) できるようになります。
