@@ -25,6 +25,13 @@ except ImportError:
 version = release
 
 # ---------------------------------------------------------------------------
+# i18n (Internationalization)
+# ---------------------------------------------------------------------------
+language = "ja"
+locale_dirs = ["locale/"]
+gettext_compact = False
+
+# ---------------------------------------------------------------------------
 # General configuration
 # ---------------------------------------------------------------------------
 extensions = [
@@ -109,6 +116,19 @@ html_theme_options = {
 # コードブロックのコピーボタン設定
 copybutton_prompt_text = r"\\$ |>>> |\\.\\.\\. "
 copybutton_prompt_is_regexp = True
+
+# サイドバーへの言語スイッチャー挿入
+html_sidebars = {
+    "**": [
+        "sidebar/scroll-start.html",
+        "sidebar/brand.html",
+        "sidebar/language.html",
+        "sidebar/search.html",
+        "sidebar/navigation.html",
+        "sidebar/ethical-ads.html",
+        "sidebar/scroll-end.html",
+    ]
+}
 
 # ---------------------------------------------------------------------------
 # Google Analytics 4

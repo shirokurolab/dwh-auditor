@@ -1,0 +1,192 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../index.rst:71
+msgid "はじめに"
+msgstr ""
+
+#: ../../index.rst:78
+msgid "設計・アーキテクチャ"
+msgstr ""
+
+#: ../../index.rst:84
+msgid "API リファレンス"
+msgstr ""
+
+#: ../../index.rst:90
+msgid "運用・デプロイ"
+msgstr ""
+
+#: ../../index.rst:3
+msgid "dwh-auditor — DWH コスト監査 & ガバナンスツール"
+msgstr ""
+
+#: ../../index.rst:5
+msgid "Python Versions"
+msgstr ""
+
+#: ../../index.rst:8
+msgid "License MIT"
+msgstr ""
+
+#: ../../index.rst:11
+msgid "PyPI version"
+msgstr ""
+
+#: ../../index.rst:16
+msgid ""
+"**dwh-auditor** は、BigQuery の `INFORMATION_SCHEMA` を解析し、 クラウドデータウェアハウスの "
+"**コスト最適化・セキュリティ監査・ガバナンス強化** を コマンド一発で実現するオープンソース CLI ツールです。"
+msgstr ""
+
+#: ../../index.rst:22
+msgid ""
+"**実際のテーブルデータには一切アクセスしません。** メタデータ（``INFORMATION_SCHEMA``）のみを読み取るため、 "
+"セキュリティポリシーが厳しいエンタープライズ環境でも即座に導入できます。"
+msgstr ""
+
+#: ../../index.rst:28
+msgid "主な機能"
+msgstr ""
+
+#: ../../index.rst:34
+msgid "#"
+msgstr ""
+
+#: ../../index.rst:35
+msgid "機能"
+msgstr ""
+
+#: ../../index.rst:36
+msgid "説明"
+msgstr ""
+
+#: ../../index.rst:37
+msgid "💸"
+msgstr ""
+
+#: ../../index.rst:38
+msgid "**高コストクエリ検知**"
+msgstr ""
+
+#: ../../index.rst:39
+msgid "過去 N 日間で課金バイト数が多かったクエリを Top-N でランキング表示します。"
+msgstr ""
+
+#: ../../index.rst:40
+msgid "🚨"
+msgstr ""
+
+#: ../../index.rst:41
+msgid "**フルスキャン検知**"
+msgstr ""
+
+#: ../../index.rst:42
+msgid "``WHERE`` 句のパーティション指定漏れなど、非効率なフルスキャンクエリを警告します。"
+msgstr ""
+
+#: ../../index.rst:43
+msgid "🧟"
+msgstr ""
+
+#: ../../index.rst:44
+msgid "**ゾンビテーブル検知**"
+msgstr ""
+
+#: ../../index.rst:45
+msgid "長期間参照されていないテーブルを特定し、不要なストレージコストを可視化します。"
+msgstr ""
+
+#: ../../index.rst:46
+msgid "📊"
+msgstr ""
+
+#: ../../index.rst:47
+msgid "**Markdown レポート出力**"
+msgstr ""
+
+#: ../../index.rst:48
+msgid "CI/CD に組み込み、GitHub Actions の Artifact や社内 Wiki に自動投稿できます。"
+msgstr ""
+
+#: ../../index.rst:52
+msgid "クイックスタート"
+msgstr ""
+
+#: ../../index.rst:69
+msgid "ドキュメント目次"
+msgstr ""
+
+#: ../../index.rst:98
+msgid "必要な IAM 権限"
+msgstr ""
+
+#: ../../index.rst:100
+msgid "dwh-auditor はメタデータのみを読み取るため、必要な権限は最小限です。"
+msgstr ""
+
+#: ../../index.rst:106
+msgid "IAM ロール"
+msgstr ""
+
+#: ../../index.rst:107
+msgid "用途"
+msgstr ""
+
+#: ../../index.rst:108
+msgid "``roles/bigquery.metadataViewer``"
+msgstr ""
+
+#: ../../index.rst:109
+msgid "データセット・テーブルのメタデータ閲覧"
+msgstr ""
+
+#: ../../index.rst:110
+msgid "``roles/bigquery.resourceViewer``"
+msgstr ""
+
+#: ../../index.rst:111
+msgid "ジョブ履歴 (``INFORMATION_SCHEMA.JOBS``) の閲覧"
+msgstr ""
+
+#: ../../index.rst:115
+msgid ""
+"``roles/bigquery.dataViewer`` 以上の権限は **不要** です。 "
+"テーブルの実データ（レコードの中身）にはアクセスしません。"
+msgstr ""
+
+#: ../../index.rst:120
+msgid "インデックス・検索"
+msgstr ""
+
+#: ../../index.rst:122
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../index.rst:123
+msgid ":ref:`modindex`"
+msgstr ""
+
+#: ../../index.rst:124
+msgid ":ref:`search`"
+msgstr ""
+

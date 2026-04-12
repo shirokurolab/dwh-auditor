@@ -1,0 +1,176 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../quickstart.rst:3
+msgid "クイックスタート — dwh-auditor のインストールと初回監査実行"
+msgstr ""
+
+#: ../../quickstart.rst:5
+msgid ""
+"このページでは、**dwh-auditor** のインストールから BigQuery の初回監査実行までを 5 "
+"分以内に完了することを目標に解説します。"
+msgstr ""
+
+#: ../../quickstart.rst:10
+msgid "前提条件"
+msgstr ""
+
+#: ../../quickstart.rst:16
+msgid "要件"
+msgstr ""
+
+#: ../../quickstart.rst:17
+msgid "詳細"
+msgstr ""
+
+#: ../../quickstart.rst:18
+msgid "Python バージョン"
+msgstr ""
+
+#: ../../quickstart.rst:19
+msgid "3.9 以上"
+msgstr ""
+
+#: ../../quickstart.rst:20
+msgid "GCP 認証"
+msgstr ""
+
+#: ../../quickstart.rst:21
+msgid ""
+"``gcloud auth application-default login`` または "
+"``GOOGLE_APPLICATION_CREDENTIALS``"
+msgstr ""
+
+#: ../../quickstart.rst:22
+msgid "IAM 権限"
+msgstr ""
+
+#: ../../quickstart.rst:23
+msgid "``roles/bigquery.metadataViewer`` / ``roles/bigquery.resourceViewer``"
+msgstr ""
+
+#: ../../quickstart.rst:27
+msgid "インストール"
+msgstr ""
+
+#: ../../quickstart.rst:30
+msgid "pip でのインストール"
+msgstr ""
+
+#: ../../quickstart.rst:36
+msgid "インストール確認:"
+msgstr ""
+
+#: ../../quickstart.rst:44
+msgid "uv を使ったインストール（推奨）"
+msgstr ""
+
+#: ../../quickstart.rst:46
+msgid "`uv <https://docs.astral.sh/uv/>`_ を使うと、依存関係の解決が高速で再現性も高まります。"
+msgstr ""
+
+#: ../../quickstart.rst:54
+msgid "ソースからのインストール（開発者向け）"
+msgstr ""
+
+#: ../../quickstart.rst:66
+msgid "GCP 認証の設定"
+msgstr ""
+
+#: ../../quickstart.rst:69
+msgid "Application Default Credentials（推奨）"
+msgstr ""
+
+#: ../../quickstart.rst:71
+msgid "ローカル開発では、Google Cloud SDK の ADC を使うのが最もシンプルです。"
+msgstr ""
+
+#: ../../quickstart.rst:78
+msgid "サービスアカウントキーを使う場合（CI/CD 環境向け）"
+msgstr ""
+
+#: ../../quickstart.rst:86
+msgid ""
+"サービスアカウントキー（JSON ファイル）は **Git リポジトリに絶対コミットしないでください。** CI/CD 環境では GitHub "
+"Actions の Secrets またはWorkload Identity Federation を使用してください。"
+msgstr ""
+
+#: ../../quickstart.rst:91
+msgid "設定ファイルの生成（init コマンド）"
+msgstr ""
+
+#: ../../quickstart.rst:93
+msgid "監査を実行する前に、設定ファイルのテンプレートを生成します。"
+msgstr ""
+
+#: ../../quickstart.rst:99
+msgid ""
+"カレントディレクトリに ``config.yaml`` が生成されます。 内容はコスト単価やしきい値のカスタマイズに使います。 詳細は "
+":doc:`configuration` を参照してください。"
+msgstr ""
+
+#: ../../quickstart.rst:105
+msgid "監査の実行（analyze コマンド）"
+msgstr ""
+
+#: ../../quickstart.rst:108
+msgid "基本的な使い方"
+msgstr ""
+
+#: ../../quickstart.rst:116
+msgid "東京リージョンを指定する場合"
+msgstr ""
+
+#: ../../quickstart.rst:126
+msgid "Markdown レポートを生成する場合"
+msgstr ""
+
+#: ../../quickstart.rst:138
+msgid ""
+"``--output markdown`` を指定すると ``report.md``（または ``--report-path`` "
+"で指定したファイル）が 生成されます。GitHub Actions の Artifact として保存し、チームに共有するのに便利です。"
+msgstr ""
+
+#: ../../quickstart.rst:143
+msgid "コマンドリファレンス"
+msgstr ""
+
+#: ../../quickstart.rst:146
+msgid "analyze コマンドのオプション一覧"
+msgstr ""
+
+#: ../../quickstart.rst:163
+msgid "次のステップ"
+msgstr ""
+
+#: ../../quickstart.rst:165
+msgid ":doc:`configuration` — ``config.yaml`` のしきい値やコスト単価をカスタマイズする"
+msgstr ""
+
+#: ../../quickstart.rst:166
+msgid ":doc:`architecture` — dwh-auditor の内部設計と 3 層アーキテクチャを理解する"
+msgstr ""
+
+#: ../../quickstart.rst:167
+msgid ":doc:`api/index` — Python API として組み込む方法を確認する"
+msgstr ""
+

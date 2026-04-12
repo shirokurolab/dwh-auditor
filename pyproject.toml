@@ -43,6 +43,7 @@ docs = [
     "sphinx>=7.0.0",
     "furo>=2024.1.29",
     "sphinx-copybutton>=0.5.2",
+    "sphinx-intl>=2.2.0",
 ]
 
 [project.scripts]

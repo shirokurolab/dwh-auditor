@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2024, dwh-auditor Contributors
+# This file is distributed under the same license as the dwh-auditor
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-04-12 23:10+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../api/extractor.rst:3
+msgid "dwh_auditor.extractor — BigQuery メタデータ抽出層"
+msgstr ""
+
+#: ../../api/extractor.rst:5
+msgid ""
+"``dwh_auditor.extractor`` パッケージは、BigQuery の ``INFORMATION_SCHEMA`` から "
+"メタデータを取得して Pydantic モデルに変換する **唯一の層** です。"
+msgstr ""
+
+#: ../../api/extractor.rst:10
+msgid ""
+"``google.cloud.bigquery`` ライブラリの直接 import は このパッケージの ``bigquery.py`` "
+"のみに限定されています。 Analyzer・Reporter・CLI からは **絶対にインポートしないでください。** "
+"この制約により、テスト時は ``BigQueryExtractor`` だけをモック化すれば 他の全層をモックなしでテストできます。"
+msgstr ""
+
+#: ../../api/extractor.rst:16
+msgid "テスト方法:"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery:1 of
+msgid "BigQuery メタデータ抽出層."
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery:3 of
+msgid ""
+"警告: このモジュールのみ google.cloud.bigquery をインポートできます。 他のモジュール (analyzer/, "
+"reporter/, main.py) からは直接インポートしてはなりません。"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor:1 of
+msgid "BigQuery の INFORMATION_SCHEMA からメタデータを抽出するクラス."
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor:3 of
+msgid "このクラスは BQ ライブラリとの唯一の接点です。 テスト時は google.cloud.bigquery.Client をモックして差し替えます。"
+msgstr ""
+
+#: ../../api/extractor.rst
+msgid "パラメータ"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.__init__:1 of
+msgid "初期化."
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.__init__:3 of
+msgid "分析対象の GCP プロジェクト ID"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.__init__:4 of
+msgid "BigQuery のリージョン (例: \"region-us\", \"region-asia-northeast1\")"
+msgstr ""
+
+#: ../../api/extractor.rst
+msgid "戻り値の型"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.get_job_history:1 of
+msgid "INFORMATION_SCHEMA.JOBS からクエリジョブ履歴を取得する."
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.get_job_history:3 of
+msgid "過去何日分のジョブ履歴を取得するか (デフォルト 30 日)"
+msgstr ""
+
+#: ../../api/extractor.rst
+msgid "戻り値"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.get_job_history:5 of
+msgid "QueryJob のリスト (total_bytes_billed の降順)"
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.get_table_storage:1 of
+msgid "INFORMATION_SCHEMA.TABLE_STORAGE からテーブルストレージ情報を取得する."
+msgstr ""
+
+#: dwh_auditor.extractor.bigquery.BigQueryExtractor.get_table_storage:3 of
+msgid "TableStorage のリスト"
+msgstr ""
+
