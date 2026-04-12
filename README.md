@@ -1,6 +1,6 @@
 # 🚀 DWH-Auditor
 
-[English](README.md) | [日本語](README.ja.md)
+[English](https://github.com/shirokurolab/dwh-auditor/blob/main/README.md) | [日本語](https://github.com/shirokurolab/dwh-auditor/blob/main/README.ja.md)
 
 ![PyPI version](https://img.shields.io/badge/pypi-v0.2.3-blue)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)
