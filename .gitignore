@@ -55,3 +55,6 @@ service_account*.json
 
 # Sphinx build output
 docs/_build/
+
+# blog posts
+posts/
