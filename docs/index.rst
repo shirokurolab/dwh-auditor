@@ -8,7 +8,7 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 .. image:: https://img.shields.io/badge/license-MIT-green
    :alt: License MIT
 
-.. image:: https://img.shields.io/badge/pypi-v0.1.0-blue
+.. image:: https://img.shields.io/badge/pypi-v0.2.0-blue
    :alt: PyPI version
 
 |
@@ -35,8 +35,11 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
      - 機能
      - 説明
    * - 💸
-     - **高コストクエリ検知**
-     - 過去 N 日間で課金バイト数が多かったクエリを Top-N でランキング表示します。
+     - **アドホック高コストクエリ検知**
+     - 過去 N 日間で単発の課金バイト数が多かったクエリを Top-N でランキング表示します。
+   * - 🔄
+     - **定常実行アラート (定期的な高コストクエリ)**
+     - バッチやダッシュボード等から定期的に実行され、積算コストが高額になっているクエリを検知します。
    * - 🚨
      - **フルスキャン検知**
      - ``WHERE`` 句のパーティション指定漏れなど、非効率なフルスキャンクエリを警告します。
@@ -44,8 +47,8 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
      - **ゾンビテーブル検知**
      - 長期間参照されていないテーブルを特定し、不要なストレージコストを可視化します。
    * - 📊
-     - **Markdown レポート出力**
-     - CI/CD に組み込み、GitHub Actions の Artifact や社内 Wiki に自動投稿できます。
+     - **マルチフォーマット出力 (Markdown / JSON)**
+     - CI/CD に組み込み、GitHub Actions の Artifact に保存したり jq でパース可能な結果を出力します。
 
 
 クイックスタート

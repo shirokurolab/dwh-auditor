@@ -135,8 +135,29 @@ Markdown レポートを生成する場合
 
 .. tip::
 
-   ``--output markdown`` を指定すると ``report.md``（または ``--report-path`` で指定したファイル）が
-   生成されます。GitHub Actions の Artifact として保存し、チームに共有するのに便利です。
+   ``--output markdown`` を指定すると GitHub Actions の Artifact として保存し、チームに共有するのに便利です。
+
+JSON を出力する場合
+-------------------
+
+.. code-block:: bash
+
+   dwh-auditor analyze \
+     --project my-gcp-project \
+     --output json > result.json
+
+複数のコンピューティングプロジェクトをまたいで分析する場合
+-----------------------------------------------------------
+
+ストレージ（データ用プロジェクト）とコンピューティング（クエリ実行用プロジェクト）が分かれている場合、
+クエリが実行されるプロジェクトのリストをカンマ区切りで渡します。
+
+.. code-block:: bash
+
+   dwh-auditor analyze \
+     --project my-storage-project \
+     --job-projects my-compute-prj1,my-compute-prj2 \
+     --days 30
 
 
 コマンドリファレンス
@@ -150,13 +171,15 @@ analyze コマンドのオプション一覧
    Usage: dwh-auditor analyze [OPTIONS]
 
    Options:
-     -p, --project TEXT       Target GCP project ID           [required]
-     -r, --region TEXT        BigQuery Region                 [default: region-us]
-     -d, --days INTEGER       Number of past days to analyze  [default: 30]
-     -c, --config TEXT        Configuration file path         [default: config.yaml]
-     -o, --output TEXT        Output format: console/markdown [default: console]
-         --report-path TEXT   Markdown report output path     [default: report.md]
-     --help                   Show this message and exit.
+
+     -p, --project TEXT       分析対象の GCP プロジェクト ID  [required]
+     -jp, --job-projects TEXT クエリが実行されるプロジェクトのカンマ区切りリスト
+     -r, --region TEXT        BigQuery のリージョン           [default: region-us]
+     -d, --days INTEGER       過去何日分を分析するか          [default: 30]
+     -c, --config TEXT        設定ファイルのパス              [default: config.yaml]
+     -o, --output TEXT        出力形式: console, markdown または json [default: console]
+         --report-path TEXT   Markdown レポートの出力先       [default: report.md]
+     --help                   ヘルプを表示
 
 
 次のステップ
