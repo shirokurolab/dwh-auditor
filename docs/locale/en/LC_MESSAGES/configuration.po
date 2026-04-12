@@ -12,206 +12,228 @@ msgstr ""
 "POT-Creation-Date: 2026-04-12 23:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../configuration.rst:3
 msgid "設定ファイル (config.yaml) — コスト単価・しきい値の DWH 監査設定"
-msgstr ""
+msgstr "Configuration File (config.yaml)"
 
 #: ../../configuration.rst:5
 msgid ""
 "dwh-auditor の各診断ルールは、プロジェクト固有の基準に合わせて ``config.yaml`` でカスタマイズできます。 "
 "「何を異常とみなすか」はビジネス要件によって異なるため、 すべての値をユーザーが上書きできる設計になっています。"
 msgstr ""
+"Each of dwh-auditor's diagnostic rules can be customized in ``config.yaml`` "
+"to meet project-specific criteria. Since \"what is considered abnormal\" "
+"depends on business requirements, all values ​​are designed to be overridden"
+" by the user."
 
 #: ../../configuration.rst:12
 msgid "設定ファイルの生成"
-msgstr ""
+msgstr "Generating the Configuration File"
 
 #: ../../configuration.rst:18
 msgid "カレントディレクトリに ``config.yaml`` が生成されます。 既にファイルが存在する場合は上書きされません。"
 msgstr ""
+"A ``config.yaml`` file will be generated in the current directory. If the "
+"file already exists, it will not be overwritten."
 
 #: ../../configuration.rst:23
 msgid ""
 "``config.yaml`` は Git リポジトリに含めても問題ありません。 ただし、機密情報（サービスアカウントキーなど）は "
 "**絶対に含めないでください。**"
 msgstr ""
+"``config.yaml`` is safe to include in a Git repository. However, **never "
+"include sensitive information (such as service account keys). **"
 
 #: ../../configuration.rst:28
 msgid "設定ファイルの全スキーマ"
-msgstr ""
+msgstr "Full Configuration Schema"
 
 #: ../../configuration.rst:58
 msgid "各設定値の詳細"
-msgstr ""
+msgstr "Configuration Details"
 
 #: ../../configuration.rst:61
 msgid "pricing セクション"
-msgstr ""
+msgstr "pricing Section"
 
 #: ../../configuration.rst:64
 msgid "``pricing.tb_scan_usd``"
-msgstr ""
+msgstr "``pricing.tb_scan_usd``"
 
 #: ../../configuration.rst:66
 msgid "1TB スキャンあたりのオンデマンド料金（USD）です。 コスト推定の計算式は以下の通りです。"
 msgstr ""
+"The on-demand price per 1TB scan in USD. The estimated cost calculation is "
+"as follows."
 
 #: ../../configuration.rst:76 ../../configuration.rst:101
 #: ../../configuration.rst:116 ../../configuration.rst:132
 #: ../../configuration.rst:151
 msgid "キー"
-msgstr ""
+msgstr "Key"
 
 #: ../../configuration.rst:77 ../../configuration.rst:102
 #: ../../configuration.rst:117 ../../configuration.rst:133
 #: ../../configuration.rst:152
 msgid "デフォルト値"
-msgstr ""
+msgstr "Default Value"
 
 #: ../../configuration.rst:78 ../../configuration.rst:118
 #: ../../configuration.rst:134 ../../configuration.rst:153
 msgid "説明"
-msgstr ""
+msgstr "Description"
 
 #: ../../configuration.rst:79
 msgid "``tb_scan_usd``"
-msgstr ""
+msgstr "``tb_scan_usd``"
 
 #: ../../configuration.rst:80
 msgid "``6.25``"
-msgstr ""
+msgstr "``6.25``"
 
 #: ../../configuration.rst:81
 msgid "BigQuery オンデマンドの標準料金に対応"
-msgstr ""
+msgstr "Corresponds to the standard BigQuery on-demand pricing."
 
 #: ../../configuration.rst:85
 msgid ""
 "Editions（Flex Slots / Standard / Enterprise）を利用している場合、 スロット時間課金モデルになります。 "
 "この場合は ``tb_scan_usd: 0.0`` に設定し、コスト分析を参考値として使用してください。"
 msgstr ""
+"If you are using Editions (Flex Slots / Standard / Enterprise), it will be a"
+" slot time billing model. In this case, set ``tb_scan_usd: 0.0`` and use the"
+" cost analysis as a reference value."
 
 #: ../../configuration.rst:91
 msgid "thresholds セクション"
-msgstr ""
+msgstr "thresholds Section"
 
 #: ../../configuration.rst:94
 msgid "``thresholds.ignore_full_scan_under_gb``"
-msgstr ""
+msgstr "``thresholds.ignore_full_scan_under_gb``"
 
 #: ../../configuration.rst:96
 msgid "この GB 数以下のスキャンは **フルスキャン警告から除外** されます。"
-msgstr ""
+msgstr "Scans under this GB amount are **excluded from full scan warnings**."
 
 #: ../../configuration.rst:103
 msgid "推奨用途"
-msgstr ""
+msgstr "Recommended Usage"
 
 #: ../../configuration.rst:104
 msgid "``ignore_full_scan_under_gb``"
-msgstr ""
+msgstr "``ignore_full_scan_under_gb``"
 
 #: ../../configuration.rst:105
 msgid "``1.0``"
-msgstr ""
+msgstr "``1.0``"
 
 #: ../../configuration.rst:106
 msgid "小規模マスターテーブル（都道府県テーブルなど）のスキャンを無視する"
-msgstr ""
+msgstr "Ignore scans of small master tables (e.g., prefecture tables)"
 
 #: ../../configuration.rst:109
 msgid "``thresholds.top_expensive_queries_limit``"
-msgstr ""
+msgstr "``thresholds.top_expensive_queries_limit``"
 
 #: ../../configuration.rst:111
 msgid "高コストクエリの報告件数の上限です。"
-msgstr ""
+msgstr "The maximum number of high-cost queries to report."
 
 #: ../../configuration.rst:119
 msgid "``top_expensive_queries_limit``"
-msgstr ""
+msgstr "``top_expensive_queries_limit``"
 
 #: ../../configuration.rst:120
 msgid "``10``"
-msgstr ""
+msgstr "``10``"
 
 #: ../../configuration.rst:121
 msgid "コンソール・レポートに表示するクエリの最大件数"
-msgstr ""
+msgstr "Maximum number of queries to display in the console or report"
 
 #: ../../configuration.rst:124
 msgid "``thresholds.zombie_table_days``"
-msgstr ""
+msgstr "``thresholds.zombie_table_days``"
 
 #: ../../configuration.rst:126
 msgid "この日数以上、一度も ``SELECT`` で参照されていないテーブルを **ゾンビテーブル** として报告します。"
 msgstr ""
+"Tables that have not been referenced by ``SELECT`` for this number of days "
+"or more are reported as **zombie tables**."
 
 #: ../../configuration.rst:135
 msgid "``zombie_table_days``"
-msgstr ""
+msgstr "``zombie_table_days``"
 
 #: ../../configuration.rst:136
 msgid "``90``"
-msgstr ""
+msgstr "``90``"
 
 #: ../../configuration.rst:137
 msgid "過去 90 日間の JOBS ビューにテーブルが現れなければゾンビ判定"
 msgstr ""
+"Classified as zombie if it hasn't appeared in JOBS views in the past 90 days"
 
 #: ../../configuration.rst:141
 msgid "dbt セクション（将来の拡張用）"
-msgstr ""
+msgstr "dbt Section"
 
 #: ../../configuration.rst:143
 msgid ""
 "dbt が発行するクエリを BigQuery のジョブラベルで識別し、 dbt モデルごとのコスト集計を行う設定です。 現バージョンでは "
 "``enabled: false`` のままにしてください。"
 msgstr ""
+"This setting identifies queries issued by dbt using BigQuery job labels and "
+"aggregates costs for each dbt model. Leave it ``enabled: false`` for the "
+"current version."
 
 #: ../../configuration.rst:154
 msgid "``dbt.enabled``"
-msgstr ""
+msgstr "``dbt.enabled``"
 
 #: ../../configuration.rst:155
 msgid "``false``"
-msgstr ""
+msgstr "``false``"
 
 #: ../../configuration.rst:156
 msgid "dbt 連携を有効にするか"
-msgstr ""
+msgstr "Whether to enable dbt integration"
 
 #: ../../configuration.rst:157
 msgid "``dbt.job_label_key``"
-msgstr ""
+msgstr "``dbt.job_label_key``"
 
 #: ../../configuration.rst:158
 msgid "``\"dbt_model\"``"
-msgstr ""
+msgstr "``\"dbt_model\"``"
 
 #: ../../configuration.rst:159
 msgid "dbt モデルを識別するラベルキー名"
-msgstr ""
+msgstr "Label key name to identify the dbt model"
 
 #: ../../configuration.rst:163
 msgid "Pydantic スキーマ"
-msgstr ""
+msgstr "Pydantic Schema"
 
 #: ../../configuration.rst:165
 msgid ""
 "設定ファイルは Python 側で Pydantic モデル :class:`dwh_auditor.config.AppConfig` に "
 "パースされるため、不正な値（負の料金、0 件のしきい値など）は 起動時にバリデーションエラーとして検出されます。"
 msgstr ""
+"The configuration file is parsed into the Pydantic model "
+":class:`dwh_auditor.config.AppConfig` on the Python side, so invalid values "
+"(negative fees, threshold of 0, etc.) are detected as validation errors at "
+"startup."
 
 #: ../../configuration.rst:177
 msgid "詳細は :doc:`api/config` を参照してください。"
-msgstr ""
-
+msgstr "For details, please refer to :doc:`api/config`."

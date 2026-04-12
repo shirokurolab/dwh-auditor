@@ -14,18 +14,18 @@ dwh-auditor はオープンソースプロジェクトです。
    git clone https://github.com/shirokurolab/dwh-auditor.git
    cd dwh-auditor
 
-   # 仮想環境の作成（uv 推奨）
+   # Create virtual environment (uv recommended)
    uv venv
    uv pip install -e ".[dev]"
 
-   # テストの実行
+   # Run tests
    uv run pytest tests/ -v
 
-   # Lint & フォーマットチェック
+   # Lint & Format check
    uv run ruff check .
    uv run ruff format --check .
 
-   # 型チェック
+   # Type check
    uv run mypy src/dwh_auditor
 
 

@@ -12,212 +12,237 @@ msgstr ""
 "POT-Creation-Date: 2026-04-12 23:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
 #: ../../architecture.rst:3
 msgid "アーキテクチャ設計 — DWH 監査の 3 層分離アーキテクチャ"
-msgstr ""
+msgstr "Architecture — 3-Tier DWH Audit Architecture"
 
 #: ../../architecture.rst:5
 msgid ""
 "dwh-auditor は **「関心の分離 (Separation of Concerns)」** を厳格に適用した 3 "
-"層アーキテクチャで設計されています。 この設計により、BigQuery 固有のコードを一か所に集約し、 将来 Snowflake や "
-"Redshift などの DWH に拡張する際も 最小限の変更で対応できます。"
+"層アーキテクチャで設計されています。 この設計により、BigQuery 固有のコードを一か所に集約し、 将来 Snowflake や Redshift "
+"などの DWH に拡張する際も 最小限の変更で対応できます。"
 msgstr ""
+"dwh-auditor is designed with a three-tier architecture that strictly "
+"enforces Separation of Concerns. This design centralizes BigQuery-specific "
+"code and allows you to expand to DWHs like Snowflake and Redshift in the "
+"future with minimal changes."
 
 #: ../../architecture.rst:13
 msgid "全体の処理フロー"
-msgstr ""
+msgstr "Overall Processing Flow"
 
 #: ../../architecture.rst:44
 msgid "各層の責務"
-msgstr ""
+msgstr "Responsibilities of Each Tier"
 
 #: ../../architecture.rst:47
 msgid "Extractor 層 (``src/dwh_auditor/extractor/``)"
-msgstr ""
+msgstr "Extractor Tier (``src/dwh_auditor/extractor/``)"
 
 #: ../../architecture.rst:49
 msgid ""
 "**BigQuery との唯一の接点** です。 ``INFORMATION_SCHEMA`` へのクエリ発行と、その結果を Pydantic "
 "モデルへの変換のみを担います。"
 msgstr ""
+"**This is the only point of contact with BigQuery**. It is only responsible "
+"for issuing queries to ``INFORMATION_SCHEMA`` and converting the results to "
+"Pydantic models."
 
 #: ../../architecture.rst:55
 msgid ""
-"``google.cloud.bigquery`` ライブラリの import は **``extractor/bigquery.py`` "
-"のみ** に許可されています。 他のモジュールからは絶対にインポートしてはなりません。"
+"``google.cloud.bigquery`` ライブラリの import は **``extractor/bigquery.py`` のみ** "
+"に許可されています。 他のモジュールからは絶対にインポートしてはなりません。"
 msgstr ""
+"Importing the ``google.cloud.bigquery`` library is allowed only in "
+"``extractor/bigquery.py``. It should never be imported from other modules."
 
 #: ../../architecture.rst:59
 msgid "取得するデータソース:"
-msgstr ""
+msgstr "Data Sources Retrieved:"
 
 #: ../../architecture.rst:65
 msgid "INFORMATION_SCHEMA ビュー"
-msgstr ""
+msgstr "INFORMATION_SCHEMA Views"
 
 #: ../../architecture.rst:66
 msgid "取得内容"
-msgstr ""
+msgstr "Content Retrieved"
 
 #: ../../architecture.rst:67
 msgid "``INFORMATION_SCHEMA.JOBS``"
-msgstr ""
+msgstr "``INFORMATION_SCHEMA.JOBS``"
 
 #: ../../architecture.rst:68
 msgid "過去 N 日間のクエリ実行履歴"
-msgstr ""
+msgstr "Query execution history over the past N days"
 
 #: ../../architecture.rst:69
 msgid "``INFORMATION_SCHEMA.TABLE_STORAGE``"
-msgstr ""
+msgstr "``INFORMATION_SCHEMA.TABLE_STORAGE``"
 
 #: ../../architecture.rst:70
 msgid "テーブルごとのストレージ使用量"
-msgstr ""
+msgstr "Storage usage per table"
 
 #: ../../architecture.rst:72
 msgid "提供する関数インターフェース:"
-msgstr ""
+msgstr "Provided Function Interfaces:"
 
 #: ../../architecture.rst:82
 msgid "Analyzer 層 (``src/dwh_auditor/analyzer/``)"
-msgstr ""
+msgstr "Analyzer Tier (``src/dwh_auditor/analyzer/``)"
 
 #: ../../architecture.rst:84
 msgid ""
 "Extractor から受け取った Pydantic モデルと、``config.yaml`` のしきい値を 突き合わせて診断を行う **純粋な "
 "Python ロジック** です。"
 msgstr ""
+"It is **pure Python logic** that performs diagnostics by matching the "
+"Pydantic model received from Extractor with the thresholds in "
+"``config.yaml``."
 
 #: ../../architecture.rst:87
 msgid "外部 API 通信を一切含まないため、単体テストが **ミリ秒単位** で完了します。"
 msgstr ""
+"It doesn't involve any external API communication, so unit tests complete in"
+" **milliseconds**."
 
 #: ../../architecture.rst:93 ../../architecture.rst:114
 msgid "モジュール"
-msgstr ""
+msgstr "Module"
 
 #: ../../architecture.rst:94
 msgid "診断ロジック"
-msgstr ""
+msgstr "Diagnostic Logic"
 
 #: ../../architecture.rst:95
 msgid "``analyzer/cost.py``"
-msgstr ""
+msgstr "``analyzer/cost.py``"
 
 #: ../../architecture.rst:96
 msgid "高コストクエリの検知（スキャンバイト数 → USD 変換、Top-N ランキング）"
 msgstr ""
+"Detection of high cost queries (scan bytes → USD conversion, Top-N ranking)"
 
 #: ../../architecture.rst:97
 msgid "``analyzer/scan.py``"
-msgstr ""
+msgstr "``analyzer/scan.py``"
 
 #: ../../architecture.rst:98
 msgid "フルスキャン検知（WHERE 句・パーティションフィルタの有無を正規表現で判定）"
 msgstr ""
+"Full scan detection (determines the presence or absence of WHERE "
+"clause/partition filter using regular expressions)"
 
 #: ../../architecture.rst:99
 msgid "``analyzer/zombie.py``"
-msgstr ""
+msgstr "``analyzer/zombie.py``"
 
 #: ../../architecture.rst:100
 msgid "ゾンビテーブル検知（ジョブ履歴の参照テーブルと突き合わせ）"
-msgstr ""
+msgstr "Zombie table detection (match with job history reference table)"
 
 #: ../../architecture.rst:101
 msgid "``analyzer/runner.py``"
-msgstr ""
+msgstr "``analyzer/runner.py``"
 
 #: ../../architecture.rst:102
 msgid "上記 3 つを呼び出して ``AuditResult`` に集約"
-msgstr ""
+msgstr "Call the above three and aggregate them into ``AuditResult``"
 
 #: ../../architecture.rst:106
 msgid "Reporter 層 (``src/dwh_auditor/reporter/``)"
-msgstr ""
+msgstr "Reporter Tier (``src/dwh_auditor/reporter/``)"
 
 #: ../../architecture.rst:108
 msgid "``AuditResult`` を受け取り、ユーザーに見せる形式に整形します。"
-msgstr ""
+msgstr "It takes an ``AuditResult`` and formats it to be shown to the user."
 
 #: ../../architecture.rst:115
 msgid "出力先"
-msgstr ""
+msgstr "Output Destination"
 
 #: ../../architecture.rst:116
 msgid "``reporter/console.py``"
-msgstr ""
+msgstr "``reporter/console.py``"
 
 #: ../../architecture.rst:117
 msgid "`Rich <https://rich.readthedocs.io/>`_ ライブラリによるターミナルへのカラー出力"
 msgstr ""
+"Color output to terminal with `Rich <https://rich.readthedocs.io/>`_ library"
 
 #: ../../architecture.rst:118
 msgid "``reporter/markdown.py``"
-msgstr ""
+msgstr "``reporter/markdown.py``"
 
 #: ../../architecture.rst:119
 msgid "``report.md`` の生成（CI/CD の Artifact として保存可能）"
-msgstr ""
+msgstr "Generate ``report.md`` (can be saved as CI/CD Artifact)"
 
 #: ../../architecture.rst:123
 msgid "内部データモデル"
-msgstr ""
+msgstr "Internal Data Model"
 
 #: ../../architecture.rst:125
 msgid ""
 "各層の間のデータ受け渡しには Pydantic モデルを使用しています。 ``dict`` をそのまま受け渡すのではなく、型定義を持たせることで "
 "バグを防ぎ、エディタの補完を効かせます。"
 msgstr ""
+"We use the Pydantic model to pass data between each layer. Rather than "
+"passing the ``dict`` as is, having a type definition prevents bugs and "
+"enables editor completion."
 
 #: ../../architecture.rst:141
 msgid "詳細は :doc:`api/models` を参照してください。"
-msgstr ""
+msgstr "See :doc:`api/models` for details."
 
 #: ../../architecture.rst:145
 msgid "テスト戦略 — なぜ高速テストが可能なのか"
-msgstr ""
+msgstr "Testing Strategy — Why Fast Testing is Possible"
 
 #: ../../architecture.rst:147
 msgid "3 層分離の最大のメリットは **テストの書きやすさ** です。"
-msgstr ""
+msgstr "The biggest advantage of the 3-tier separation is testability."
 
 #: ../../architecture.rst:150
 msgid "Analyzer 層のテスト"
-msgstr ""
+msgstr "Testing the Analyzer Tier"
 
 #: ../../architecture.rst:152
 msgid ""
-"Pydantic モデルにダミーデータを入れて関数を呼ぶだけです。 BigQuery のモックは **一切不要** で、46 テストが "
-"**0.35 秒以内** に完了します。"
+"Pydantic モデルにダミーデータを入れて関数を呼ぶだけです。 BigQuery のモックは **一切不要** で、46 テストが **0.35 "
+"秒以内** に完了します。"
 msgstr ""
+"Just put dummy data in the Pydantic model and call the function. **No "
+"BigQuery mocks required** and 46 tests completed in **less than 0.35 "
+"seconds**."
 
 #: ../../architecture.rst:163
 msgid "Extractor 層のテスト"
-msgstr ""
+msgstr "Testing the Extractor Tier"
 
 #: ../../architecture.rst:165
 msgid "``pytest-mock`` で ``google.cloud.bigquery.Client`` をパッチするだけです。"
-msgstr ""
+msgstr "Just patch ``google.cloud.bigquery.Client`` with ``pytest-mock``."
 
 #: ../../architecture.rst:179
 msgid "拡張性 — 他 DWH への対応"
-msgstr ""
+msgstr "Extensibility — Supporting other DWHs"
 
 #: ../../architecture.rst:181
 msgid "Extractor 層を差し替えるだけで、他のデータウェアハウスに対応できます。"
 msgstr ""
+"Compatible with other data warehouses by simply replacing the Extractor "
+"layer."
 
 #: ../../architecture.rst:190
 msgid "Analyzer 層と Reporter 層は **変更不要** です。"
-msgstr ""
-
+msgstr "The Analyzer and Reporter tiers do not require any changes."
