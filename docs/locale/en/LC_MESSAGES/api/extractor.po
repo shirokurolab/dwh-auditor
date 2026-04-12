@@ -40,8 +40,8 @@ msgid ""
 "``BigQueryExtractor`` だけをモック化すれば 他の全層をモックなしでテストできます。"
 msgstr ""
 "Direct import of the ``google.cloud.bigquery`` library is limited to "
-"``bigquery.py`` in this package. **Never import from Analyzer/Reporter/CLI. "
-"** Due to this restriction, when testing, you can only mock "
+"``bigquery.py`` in this package. **Never import from Analyzer/Reporter/CLI.** "
+"Due to this restriction, when testing, you can only mock "
 "``BigQueryExtractor`` and test all other layers without mocking."
 
 #: ../../api/extractor.rst:16

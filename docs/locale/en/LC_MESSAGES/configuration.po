@@ -50,7 +50,7 @@ msgid ""
 "**絶対に含めないでください。**"
 msgstr ""
 "``config.yaml`` is safe to include in a Git repository. However, **never "
-"include sensitive information (such as service account keys). **"
+"include sensitive information (such as service account keys).**"
 
 #: ../../configuration.rst:28
 msgid "設定ファイルの全スキーマ"
