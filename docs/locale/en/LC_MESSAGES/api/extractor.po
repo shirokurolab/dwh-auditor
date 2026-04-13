@@ -63,7 +63,7 @@ msgstr ""
 
 #: dwh_auditor.extractor.bigquery.BigQueryExtractor:1 of
 #, fuzzy
-msgid "BigQuery メタデータ抽出クラス (v0.2.5 API 準拠)."
+msgid "BigQuery メタデータ抽出クラス (v0.2.6 API 準拠)."
 msgstr "BigQuery metadata extraction layer."
 
 #: ../../api/extractor.rst

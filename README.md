@@ -2,7 +2,7 @@
 
 [English](https://github.com/shirokurolab/dwh-auditor/blob/main/README.md) | [日本語](https://github.com/shirokurolab/dwh-auditor/blob/main/README.ja.md)
 
-![PyPI version](https://img.shields.io/badge/pypi-v0.2.5-blue)
+![PyPI version](https://img.shields.io/badge/pypi-v0.2.6-blue)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)
@@ -14,7 +14,7 @@
 By visualizing exactly _who_ is executing heavy queries and _which_ tables are completely unused, it uncovers hidden financial waste and provides actionable insights.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.0.png" alt="DWH-Auditor Console Report Sample">
+  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.6.png" alt="DWH-Auditor Console Report Sample">
 </p>
 
 ## 💡 Why DWH-Auditor?

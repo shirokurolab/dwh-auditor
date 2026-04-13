@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "dwh-auditor"
-version = "0.2.5"
+version = "0.2.6"
 description = "BigQuery cost optimization and governance audit CLI tool"
 readme = "README.md"
 license = { file = "LICENSE" }

@@ -8,7 +8,7 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 .. image:: https://img.shields.io/badge/license-MIT-green
    :alt: License MIT
 
-.. image:: https://img.shields.io/badge/pypi-v0.2.5-blue
+.. image:: https://img.shields.io/badge/pypi-v0.2.6-blue
    :alt: PyPI version
 
 |
@@ -17,7 +17,7 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 クラウドデータウェアハウスの **コスト最適化・セキュリティ監査・ガバナンス強化** を
 コマンド一発で実現するオープンソース CLI ツールです。
 
-.. image:: assets/sample_output_v0.2.5.png
+.. image:: assets/sample_output_v0.2.6.png
    :alt: DWH-Auditor Console Report Sample
    :align: center
 
