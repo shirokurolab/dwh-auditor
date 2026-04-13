@@ -17,6 +17,11 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 クラウドデータウェアハウスの **コスト最適化・セキュリティ監査・ガバナンス強化** を
 コマンド一発で実現するオープンソース CLI ツールです。
 
+.. image:: assets/sample_output_v0.2.4.png
+   :alt: DWH-Auditor Console Report Sample
+   :align: center
+
+
 .. tip::
 
    **実際のテーブルデータには一切アクセスしません。**
