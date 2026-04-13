@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dwh-auditor 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -28,7 +28,9 @@ msgstr "Quickstart — Installation and Initial Audit"
 msgid ""
 "このページでは、**dwh-auditor** のインストールから BigQuery の初回監査実行までを 5 "
 "分以内に完了することを目標に解説します。"
-msgstr "This page aims to guide you through installing **dwh-auditor** and executing your first BigQuery audit in under 5 minutes."
+msgstr ""
+"This page aims to guide you through installing **dwh-auditor** and "
+"executing your first BigQuery audit in under 5 minutes."
 
 #: ../../quickstart.rst:10
 msgid "前提条件"
@@ -58,7 +60,9 @@ msgstr "GCP Authentication"
 msgid ""
 "``gcloud auth application-default login`` または "
 "``GOOGLE_APPLICATION_CREDENTIALS``"
-msgstr "``gcloud auth application-default login`` or ``GOOGLE_APPLICATION_CREDENTIALS``"
+msgstr ""
+"``gcloud auth application-default login`` or "
+"``GOOGLE_APPLICATION_CREDENTIALS``"
 
 #: ../../quickstart.rst:22
 msgid "IAM 権限"
@@ -102,7 +106,9 @@ msgstr "Application Default Credentials (Recommended)"
 
 #: ../../quickstart.rst:71
 msgid "ローカル開発では、Google Cloud SDK の ADC を使うのが最もシンプルです。"
-msgstr "Using ADC from the Google Cloud SDK is the simplest approach for local development."
+msgstr ""
+"Using ADC from the Google Cloud SDK is the simplest approach for local "
+"development."
 
 #: ../../quickstart.rst:78
 msgid "サービスアカウントキーを使う場合（CI/CD 環境向け）"
@@ -112,7 +118,10 @@ msgstr "Using Service Account Keys (CI/CD environments)"
 msgid ""
 "サービスアカウントキー（JSON ファイル）は **Git リポジトリに絶対コミットしないでください。** CI/CD 環境では GitHub "
 "Actions の Secrets またはWorkload Identity Federation を使用してください。"
-msgstr "Service account keys (JSON files) must **never be committed to Git repositories.** For CI/CD environments, use GitHub Actions Secrets or Workload Identity Federation."
+msgstr ""
+"Service account keys (JSON files) must **never be committed to Git "
+"repositories.** For CI/CD environments, use GitHub Actions Secrets or "
+"Workload Identity Federation."
 
 #: ../../quickstart.rst:91
 msgid "設定ファイルの生成（init コマンド）"
@@ -126,7 +135,10 @@ msgstr "Generate a configuration file template before running an audit."
 msgid ""
 "カレントディレクトリに ``config.yaml`` が生成されます。 内容はコスト単価やしきい値のカスタマイズに使います。 詳細は "
 ":doc:`configuration` を参照してください。"
-msgstr "A ``config.yaml`` file will be generated in the current directory. You can use it to customize cost rates and thresholds. For details, refer to :doc:`configuration`."
+msgstr ""
+"A ``config.yaml`` file will be generated in the current directory. You "
+"can use it to customize cost rates and thresholds. For details, refer to "
+":doc:`configuration`."
 
 #: ../../quickstart.rst:105
 msgid "監査の実行（analyze コマンド）"
@@ -145,32 +157,54 @@ msgid "Markdown レポートを生成する場合"
 msgstr "Generating Markdown Report"
 
 #: ../../quickstart.rst:138
+#, fuzzy
 msgid ""
-"``--output markdown`` を指定すると ``report.md``（または ``--report-path`` "
-"で指定したファイル）が 生成されます。GitHub Actions の Artifact として保存し、チームに共有するのに便利です。"
-msgstr "Specifying ``--output markdown`` generates a ``report.md`` (or the file specified by ``--report-path``). This is useful for saving as a GitHub Actions Artifact and sharing with your team."
+"``--output markdown`` を指定すると GitHub Actions の Artifact "
+"として保存し、チームに共有するのに便利です。"
+msgstr ""
+"Specifying ``--output markdown`` generates a ``report.md`` (or the file "
+"specified by ``--report-path``). This is useful for saving as a GitHub "
+"Actions Artifact and sharing with your team."
 
-#: ../../quickstart.rst:143
+#: ../../quickstart.rst:141
+msgid "JSON を出力する場合"
+msgstr ""
+
+#: ../../quickstart.rst:150
+msgid "複数のコンピューティングプロジェクトをまたいで分析する場合"
+msgstr ""
+
+#: ../../quickstart.rst:152
+msgid ""
+"ストレージ（データ用プロジェクト）とコンピューティング（クエリ実行用プロジェクト）が分かれている場合、 "
+"クエリが実行されるプロジェクトのリストをカンマ区切りで渡します。"
+msgstr ""
+
+#: ../../quickstart.rst:164
 msgid "コマンドリファレンス"
 msgstr "Command Reference"
 
-#: ../../quickstart.rst:146
+#: ../../quickstart.rst:167
 msgid "analyze コマンドのオプション一覧"
 msgstr "List of 'analyze' Command Options"
 
-#: ../../quickstart.rst:163
+#: ../../quickstart.rst:186
 msgid "次のステップ"
 msgstr "Next Steps"
 
-#: ../../quickstart.rst:165
+#: ../../quickstart.rst:188
 msgid ":doc:`configuration` — ``config.yaml`` のしきい値やコスト単価をカスタマイズする"
-msgstr ":doc:`configuration` — Customize thresholds and cost rates in ``config.yaml``"
+msgstr ""
+":doc:`configuration` — Customize thresholds and cost rates in "
+"``config.yaml``"
 
-#: ../../quickstart.rst:166
+#: ../../quickstart.rst:189
 msgid ":doc:`architecture` — dwh-auditor の内部設計と 3 層アーキテクチャを理解する"
-msgstr ":doc:`architecture` — Understand the internal design and 3-tier architecture of dwh-auditor"
+msgstr ""
+":doc:`architecture` — Understand the internal design and 3-tier "
+"architecture of dwh-auditor"
 
-#: ../../quickstart.rst:167
+#: ../../quickstart.rst:190
 msgid ":doc:`api/index` — Python API として組み込む方法を確認する"
 msgstr ":doc:`api/index` — Learn how to integrate it as a Python API"
 

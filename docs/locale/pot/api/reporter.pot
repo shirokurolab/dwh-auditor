@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Project-Id-Version: dwh-auditor 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 23:10+0900\n"
+"POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,6 +34,7 @@ msgstr ""
 
 #: ../../api/reporter.rst:16
 #: ../../api/reporter.rst:40
+#: ../../api/reporter.rst:61
 msgid "使用例:"
 msgstr ""
 
@@ -46,6 +47,7 @@ msgid "AuditResult をターミナルにリッチ表示する."
 msgstr ""
 
 #: ../../api/reporter.rst:0
+#: ../../../src/dwh_auditor/reporter/json_out.py:docstring of dwh_auditor.reporter.json_out.generate_json_report:0
 msgid "パラメータ"
 msgstr ""
 
@@ -55,6 +57,7 @@ msgid "Analyzer から受け取った監査結果"
 msgstr ""
 
 #: ../../api/reporter.rst:0
+#: ../../../src/dwh_auditor/reporter/json_out.py:docstring of dwh_auditor.reporter.json_out.generate_json_report:0
 msgid "戻り値の型"
 msgstr ""
 
@@ -80,4 +83,24 @@ msgstr ""
 
 #: ../../../src/dwh_auditor/reporter/markdown.py:docstring of dwh_auditor.reporter.markdown.generate_markdown_report:7
 msgid "出力先ファイルパス (デフォルト: \"report.md\")"
+msgstr ""
+
+#: ../../api/reporter.rst:56
+msgid "JSON レポート生成 (``reporter.json_out``)"
+msgstr ""
+
+#: ../../api/reporter.rst:58
+msgid "システム連携・二次解析用の JSON 形式で監査結果を出力します。 jq 等でのパースや、ダッシュボードへの直接取り込みに適しています。"
+msgstr ""
+
+#: ../../../src/dwh_auditor/reporter/json_out.py:docstring of dwh_auditor.reporter.json_out:1
+msgid "JSON フォーマットの出力層."
+msgstr ""
+
+#: ../../../src/dwh_auditor/reporter/json_out.py:docstring of dwh_auditor.reporter.json_out.generate_json_report:1
+msgid "AuditResult を JSON 文字列に変換する."
+msgstr ""
+
+#: ../../../src/dwh_auditor/reporter/json_out.py:docstring of dwh_auditor.reporter.json_out.generate_json_report:3
+msgid "CI/CD ツール等での利用を想定し、標準出力にそのまま渡せる形式で出力する。"
 msgstr ""

@@ -9,30 +9,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dwh-auditor 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language: en\n"
 "Language-Team: en <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: ../../index.rst:71
+#: ../../index.rst:74
 msgid "はじめに"
 msgstr "Introduction"
 
-#: ../../index.rst:78
+#: ../../index.rst:81
 msgid "設計・アーキテクチャ"
 msgstr "Architecture"
 
-#: ../../index.rst:84
+#: ../../index.rst:87
 msgid "API リファレンス"
 msgstr "API Reference"
 
-#: ../../index.rst:90
+#: ../../index.rst:93
 msgid "運用・デプロイ"
 msgstr "Deployment"
 
@@ -56,13 +56,19 @@ msgstr "PyPI version"
 msgid ""
 "**dwh-auditor** は、BigQuery の `INFORMATION_SCHEMA` を解析し、 クラウドデータウェアハウスの "
 "**コスト最適化・セキュリティ監査・ガバナンス強化** を コマンド一発で実現するオープンソース CLI ツールです。"
-msgstr "**dwh-auditor** is an open-source CLI tool that parses BigQuery's `INFORMATION_SCHEMA` to instantly perform **cost optimization, security auditing, and governance enforcement** for your cloud data warehouse."
+msgstr ""
+"**dwh-auditor** is an open-source CLI tool that parses BigQuery's "
+"`INFORMATION_SCHEMA` to instantly perform **cost optimization, security "
+"auditing, and governance enforcement** for your cloud data warehouse."
 
 #: ../../index.rst:22
 msgid ""
 "**実際のテーブルデータには一切アクセスしません。** メタデータ（``INFORMATION_SCHEMA``）のみを読み取るため、 "
 "セキュリティポリシーが厳しいエンタープライズ環境でも即座に導入できます。"
-msgstr "**It never accesses actual table data.** Since it only reads metadata (``INFORMATION_SCHEMA``), it can be deployed instantly even in enterprise environments with strict security policies."
+msgstr ""
+"**It never accesses actual table data.** Since it only reads metadata "
+"(``INFORMATION_SCHEMA``), it can be deployed instantly even in enterprise "
+"environments with strict security policies."
 
 #: ../../index.rst:28
 msgid "主な機能"
@@ -85,108 +91,134 @@ msgid "💸"
 msgstr "💸"
 
 #: ../../index.rst:38
-msgid "**高コストクエリ検知**"
-msgstr "**High-Cost Query Detection**"
+msgid "**アドホック高コストクエリ検知**"
+msgstr "**Ad-hoc High-Cost Query Detection**"
 
 #: ../../index.rst:39
-msgid "過去 N 日間で課金バイト数が多かったクエリを Top-N でランキング表示します。"
-msgstr "Displays the Top-N queries with the highest billed bytes over the past N days."
+msgid "過去 N 日間で単発の課金バイト数が多かったクエリを Top-N でランキング表示します。"
+msgstr ""
+"Displays the Top-N ranking of single queries with the highest billed bytes "
+"over the past N days."
 
 #: ../../index.rst:40
+msgid "🔄"
+msgstr "🔄"
+
+#: ../../index.rst:41
+msgid "**定常実行アラート (定期的な高コストクエリ)**"
+msgstr "**Recurring Execution Alert (Periodic High-Cost Queries)**"
+
+#: ../../index.rst:42
+msgid "バッチやダッシュボード等から定期的に実行され、積算コストが高額になっているクエリを検知します。"
+msgstr ""
+"Detects queries executed periodically from batches or dashboards that have "
+"high accumulated costs."
+
+#: ../../index.rst:43
 msgid "🚨"
 msgstr "🚨"
 
-#: ../../index.rst:41
+#: ../../index.rst:44
 msgid "**フルスキャン検知**"
 msgstr "**Full Scan Detection**"
 
-#: ../../index.rst:42
+#: ../../index.rst:45
 msgid "``WHERE`` 句のパーティション指定漏れなど、非効率なフルスキャンクエリを警告します。"
-msgstr "Warns of inefficient full table scans caused by missing partition filters in the ``WHERE`` clause."
+msgstr ""
+"Warns of inefficient full table scans caused by missing partition filters in"
+" the ``WHERE`` clause."
 
-#: ../../index.rst:43
+#: ../../index.rst:46
 msgid "🧟"
 msgstr "🧟"
 
-#: ../../index.rst:44
+#: ../../index.rst:47
 msgid "**ゾンビテーブル検知**"
 msgstr "**Zombie Table Detection**"
 
-#: ../../index.rst:45
+#: ../../index.rst:48
 msgid "長期間参照されていないテーブルを特定し、不要なストレージコストを可視化します。"
-msgstr "Identifies tables that have not been referenced for a long time to visualize unnecessary storage costs."
+msgstr ""
+"Identifies tables that have not been referenced for a long time to visualize"
+" unnecessary storage costs."
 
-#: ../../index.rst:46
+#: ../../index.rst:49
 msgid "📊"
 msgstr "📊"
 
-#: ../../index.rst:47
-msgid "**Markdown レポート出力**"
-msgstr "**Markdown Report Output**"
+#: ../../index.rst:50
+msgid "**マルチフォーマット出力 (Markdown / JSON)**"
+msgstr "**Multi-format Output (Markdown / JSON)**"
 
-#: ../../index.rst:48
-msgid "CI/CD に組み込み、GitHub Actions の Artifact や社内 Wiki に自動投稿できます。"
-msgstr "Can be integrated into CI/CD pipelines to output artifacts for GitHub Actions or auto-post to Wikis."
+#: ../../index.rst:51
+msgid "CI/CD に組み込み、GitHub Actions の Artifact に保存したり jq でパース可能な結果を出力します。"
+msgstr ""
+"Integrate into CI/CD to save as GitHub Actions Artifacts or output jq-"
+"parsable results."
 
-#: ../../index.rst:52
+#: ../../index.rst:55
 msgid "クイックスタート"
 msgstr "Quickstart"
 
-#: ../../index.rst:69
+#: ../../index.rst:72
 msgid "ドキュメント目次"
 msgstr "Documentation Table of Contents"
 
-#: ../../index.rst:98
+#: ../../index.rst:101
 msgid "必要な IAM 権限"
 msgstr "Required IAM Permissions"
 
-#: ../../index.rst:100
+#: ../../index.rst:103
 msgid "dwh-auditor はメタデータのみを読み取るため、必要な権限は最小限です。"
 msgstr "dwh-auditor only reads metadata, requiring minimal permissions."
 
-#: ../../index.rst:106
+#: ../../index.rst:109
 msgid "IAM ロール"
 msgstr "IAM Role"
 
-#: ../../index.rst:107
+#: ../../index.rst:110
 msgid "用途"
 msgstr "Usage"
 
-#: ../../index.rst:108
+#: ../../index.rst:111
 msgid "``roles/bigquery.metadataViewer``"
 msgstr "``roles/bigquery.metadataViewer``"
 
-#: ../../index.rst:109
+#: ../../index.rst:112
 msgid "データセット・テーブルのメタデータ閲覧"
 msgstr "View dataset and table metadata"
 
-#: ../../index.rst:110
+#: ../../index.rst:113
 msgid "``roles/bigquery.resourceViewer``"
 msgstr "``roles/bigquery.resourceViewer``"
 
-#: ../../index.rst:111
+#: ../../index.rst:114
 msgid "ジョブ履歴 (``INFORMATION_SCHEMA.JOBS``) の閲覧"
 msgstr "View job history (``INFORMATION_SCHEMA.JOBS``)"
 
-#: ../../index.rst:115
+#: ../../index.rst:118
 msgid ""
 "``roles/bigquery.dataViewer`` 以上の権限は **不要** です。 "
 "テーブルの実データ（レコードの中身）にはアクセスしません。"
-msgstr "Permissions beyond ``roles/bigquery.dataViewer`` are **NOT required**. It does not access the actual data (records) in the tables."
+msgstr ""
+"Permissions beyond ``roles/bigquery.dataViewer`` are **NOT required**. It "
+"does not access the actual data (records) in the tables."
 
-#: ../../index.rst:120
+#: ../../index.rst:123
 msgid "インデックス・検索"
 msgstr "Index and Search"
 
-#: ../../index.rst:122
+#: ../../index.rst:125
 msgid ":ref:`genindex`"
 msgstr ":ref:`genindex`"
 
-#: ../../index.rst:123
+#: ../../index.rst:126
 msgid ":ref:`modindex`"
 msgstr ":ref:`modindex`"
 
-#: ../../index.rst:124
+#: ../../index.rst:127
 msgid ":ref:`search`"
 msgstr ":ref:`search`"
 
+#~ msgid "**Markdown レポート出力**"
+#~ msgstr "**Markdown Report Output**"

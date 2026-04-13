@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Project-Id-Version: dwh-auditor 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 23:10+0900\n"
+"POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -48,7 +48,8 @@ msgstr ""
 #: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.AuditResult.model_config:1
 #: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.CostInsight.model_config:1
 #: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.FullScanInsight.model_config:1
-#: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.ZombieTableInsight.model_config:1
+#: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.RecurringCostInsight.model_config:1
+#: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.TableUsageProfile.model_config:1
 #: ../../../src/dwh_auditor/models/table.py:docstring of dwh_auditor.models.table.TableStorage.model_config:1
 msgid "Configuration for the model, should be a dictionary conforming to [`ConfigDict`][pydantic.config.ConfigDict]."
 msgstr ""
@@ -93,8 +94,12 @@ msgstr ""
 msgid "フルスキャンと判定されたクエリの分析結果."
 msgstr ""
 
-#: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.ZombieTableInsight:1
-msgid "使われていないテーブルの分析結果."
+#: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.TableUsageProfile:1
+msgid "テーブルの利用状況プロファイルとゾンビ判定結果."
+msgstr ""
+
+#: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.RecurringCostInsight:1
+msgid "バッチやBI等から定常的に実行されている高コストクエリの分析結果."
 msgstr ""
 
 #: ../../../src/dwh_auditor/models/result.py:docstring of dwh_auditor.models.result.AuditResult:1
