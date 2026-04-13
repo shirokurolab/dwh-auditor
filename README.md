@@ -14,7 +14,7 @@
 By visualizing exactly _who_ is executing heavy queries and _which_ tables are completely unused, it uncovers hidden financial waste and provides actionable insights.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.4.png" alt="DWH-Auditor Console Report Sample">
+  <img src="https://raw.githubusercontent.com/shirokurolab/dwh-auditor/main/docs/assets/sample_output_v0.2.0.png" alt="DWH-Auditor Console Report Sample">
 </p>
 
 ## 💡 Why DWH-Auditor?
