@@ -27,8 +27,8 @@ app = typer.Typer(
     pretty_exceptions_show_locals=False,
 )
 
-# config_template.yaml のパス (パッケージルートからの相対パスを解決)
-_TEMPLATE_PATH = Path(__file__).parent.parent.parent / "config_template.yaml"
+# config_template.yaml のパス (パッケージ内に配置)
+_TEMPLATE_PATH = Path(__file__).parent / "config_template.yaml"
 
 
 @app.command()
