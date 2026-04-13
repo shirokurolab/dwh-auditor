@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dwh-auditor 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-13 12:48+0900\n"
+"POT-Creation-Date: 2026-04-13 12:57+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,19 +16,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../index.rst:74
+#: ../../index.rst:78
 msgid "はじめに"
 msgstr ""
 
-#: ../../index.rst:81
+#: ../../index.rst:85
 msgid "設計・アーキテクチャ"
 msgstr ""
 
-#: ../../index.rst:87
+#: ../../index.rst:91
 msgid "API リファレンス"
 msgstr ""
 
-#: ../../index.rst:93
+#: ../../index.rst:97
 msgid "運用・デプロイ"
 msgstr ""
 
@@ -48,146 +48,150 @@ msgstr ""
 msgid "PyPI version"
 msgstr ""
 
-#: ../../index.rst:16
+#: ../../index.rst:14
+msgid "PyPI Downloads"
+msgstr ""
+
+#: ../../index.rst:20
 msgid "**dwh-auditor** は、BigQuery の `INFORMATION_SCHEMA` を解析し、 クラウドデータウェアハウスの **コスト最適化・セキュリティ監査・ガバナンス強化** を コマンド一発で実現するオープンソース CLI ツールです。"
 msgstr ""
 
-#: ../../index.rst:22
+#: ../../index.rst:26
 msgid "**実際のテーブルデータには一切アクセスしません。** メタデータ（``INFORMATION_SCHEMA``）のみを読み取るため、 セキュリティポリシーが厳しいエンタープライズ環境でも即座に導入できます。"
 msgstr ""
 
-#: ../../index.rst:28
+#: ../../index.rst:32
 msgid "主な機能"
 msgstr ""
 
-#: ../../index.rst:34
+#: ../../index.rst:38
 msgid "#"
 msgstr ""
 
-#: ../../index.rst:35
+#: ../../index.rst:39
 msgid "機能"
 msgstr ""
 
-#: ../../index.rst:36
+#: ../../index.rst:40
 msgid "説明"
 msgstr ""
 
-#: ../../index.rst:37
+#: ../../index.rst:41
 msgid "💸"
 msgstr ""
 
-#: ../../index.rst:38
+#: ../../index.rst:42
 msgid "**アドホック高コストクエリ検知**"
 msgstr ""
 
-#: ../../index.rst:39
+#: ../../index.rst:43
 msgid "過去 N 日間で単発の課金バイト数が多かったクエリを Top-N でランキング表示します。"
 msgstr ""
 
-#: ../../index.rst:40
+#: ../../index.rst:44
 msgid "🔄"
 msgstr ""
 
-#: ../../index.rst:41
+#: ../../index.rst:45
 msgid "**定常実行アラート (定期的な高コストクエリ)**"
 msgstr ""
 
-#: ../../index.rst:42
+#: ../../index.rst:46
 msgid "バッチやダッシュボード等から定期的に実行され、積算コストが高額になっているクエリを検知します。"
 msgstr ""
 
-#: ../../index.rst:43
+#: ../../index.rst:47
 msgid "🚨"
 msgstr ""
 
-#: ../../index.rst:44
+#: ../../index.rst:48
 msgid "**フルスキャン検知**"
 msgstr ""
 
-#: ../../index.rst:45
+#: ../../index.rst:49
 msgid "``WHERE`` 句のパーティション指定漏れなど、非効率なフルスキャンクエリを警告します。"
 msgstr ""
 
-#: ../../index.rst:46
+#: ../../index.rst:50
 msgid "🧟"
 msgstr ""
 
-#: ../../index.rst:47
+#: ../../index.rst:51
 msgid "**ゾンビテーブル検知**"
 msgstr ""
 
-#: ../../index.rst:48
+#: ../../index.rst:52
 msgid "長期間参照されていないテーブルを特定し、不要なストレージコストを可視化します。"
 msgstr ""
 
-#: ../../index.rst:49
+#: ../../index.rst:53
 msgid "📊"
 msgstr ""
 
-#: ../../index.rst:50
+#: ../../index.rst:54
 msgid "**マルチフォーマット出力 (Markdown / JSON)**"
 msgstr ""
 
-#: ../../index.rst:51
+#: ../../index.rst:55
 msgid "CI/CD に組み込み、GitHub Actions の Artifact に保存したり jq でパース可能な結果を出力します。"
 msgstr ""
 
-#: ../../index.rst:55
+#: ../../index.rst:59
 msgid "クイックスタート"
 msgstr ""
 
-#: ../../index.rst:72
+#: ../../index.rst:76
 msgid "ドキュメント目次"
 msgstr ""
 
-#: ../../index.rst:101
+#: ../../index.rst:105
 msgid "必要な IAM 権限"
 msgstr ""
 
-#: ../../index.rst:103
+#: ../../index.rst:107
 msgid "dwh-auditor はメタデータのみを読み取るため、必要な権限は最小限です。"
 msgstr ""
 
-#: ../../index.rst:109
+#: ../../index.rst:113
 msgid "IAM ロール"
 msgstr ""
 
-#: ../../index.rst:110
+#: ../../index.rst:114
 msgid "用途"
 msgstr ""
 
-#: ../../index.rst:111
+#: ../../index.rst:115
 msgid "``roles/bigquery.metadataViewer``"
 msgstr ""
 
-#: ../../index.rst:112
+#: ../../index.rst:116
 msgid "データセット・テーブルのメタデータ閲覧"
 msgstr ""
 
-#: ../../index.rst:113
+#: ../../index.rst:117
 msgid "``roles/bigquery.resourceViewer``"
 msgstr ""
 
-#: ../../index.rst:114
+#: ../../index.rst:118
 msgid "ジョブ履歴 (``INFORMATION_SCHEMA.JOBS``) の閲覧"
 msgstr ""
 
-#: ../../index.rst:118
+#: ../../index.rst:122
 msgid "``roles/bigquery.dataViewer`` 以上の権限は **不要** です。 テーブルの実データ（レコードの中身）にはアクセスしません。"
 msgstr ""
 
-#: ../../index.rst:123
+#: ../../index.rst:127
 msgid "インデックス・検索"
 msgstr ""
 
-#: ../../index.rst:125
+#: ../../index.rst:129
 msgid ":ref:`genindex`"
 msgstr ""
 
-#: ../../index.rst:126
+#: ../../index.rst:130
 msgid ":ref:`modindex`"
 msgstr ""
 
-#: ../../index.rst:127
+#: ../../index.rst:131
 msgid ":ref:`search`"
 msgstr ""

@@ -3,6 +3,7 @@
 [English](https://github.com/shirokurolab/dwh-auditor/blob/main/README.md) | [日本語](https://github.com/shirokurolab/dwh-auditor/blob/main/README.ja.md)
 
 ![PyPI version](https://img.shields.io/badge/pypi-v0.2.4-blue)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/dwh-auditor?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/dwh-auditor)
 ![Python Versions](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 [![Documentation](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://shirokurolab.github.io/dwh-auditor/)

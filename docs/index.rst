@@ -11,6 +11,10 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 .. image:: https://img.shields.io/badge/pypi-v0.2.4-blue
    :alt: PyPI version
 
+.. image:: https://static.pepy.tech/personalized-badge/dwh-auditor?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads
+   :target: https://pepy.tech/projects/dwh-auditor
+   :alt: PyPI Downloads
+
 |
 
 **dwh-auditor** は、BigQuery の `INFORMATION_SCHEMA` を解析し、
