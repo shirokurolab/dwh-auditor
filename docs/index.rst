@@ -8,7 +8,7 @@ dwh-auditor — DWH コスト監査 & ガバナンスツール
 .. image:: https://img.shields.io/badge/license-MIT-green
    :alt: License MIT
 
-.. image:: https://img.shields.io/badge/pypi-v0.2.3-blue
+.. image:: https://img.shields.io/badge/pypi-v0.2.4-blue
    :alt: PyPI version
 
 |
