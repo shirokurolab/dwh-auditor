@@ -20,7 +20,7 @@ author = "dwh-auditor Contributors"
 try:
     from dwh_auditor import __version__ as release
 except ImportError:
-    release = "0.2.5"
+    release = "0.2.6"
 
 version = release
 
