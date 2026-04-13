@@ -6,7 +6,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dwh-auditor 0.2.4\n"
+"Project-Id-Version: dwh-auditor 0.2.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
@@ -41,7 +41,7 @@ msgid "警告: このモジュールのみ google.cloud.bigquery をインポー
 msgstr ""
 
 #: ../../../src/dwh_auditor/extractor/bigquery.py:docstring of dwh_auditor.extractor.bigquery.BigQueryExtractor:1
-msgid "BigQuery メタデータ抽出クラス (v0.2.4 API 準拠)."
+msgid "BigQuery メタデータ抽出クラス (v0.2.5 API 準拠)."
 msgstr ""
 
 #: ../../api/extractor.rst:0
