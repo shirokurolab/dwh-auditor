@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Project-Id-Version: dwh-auditor 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 23:08+0900\n"
+"POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -133,29 +133,41 @@ msgid "Markdown レポートを生成する場合"
 msgstr ""
 
 #: ../../quickstart.rst:138
-msgid "``--output markdown`` を指定すると ``report.md``（または ``--report-path`` で指定したファイル）が 生成されます。GitHub Actions の Artifact として保存し、チームに共有するのに便利です。"
+msgid "``--output markdown`` を指定すると GitHub Actions の Artifact として保存し、チームに共有するのに便利です。"
 msgstr ""
 
-#: ../../quickstart.rst:143
+#: ../../quickstart.rst:141
+msgid "JSON を出力する場合"
+msgstr ""
+
+#: ../../quickstart.rst:150
+msgid "複数のコンピューティングプロジェクトをまたいで分析する場合"
+msgstr ""
+
+#: ../../quickstart.rst:152
+msgid "ストレージ（データ用プロジェクト）とコンピューティング（クエリ実行用プロジェクト）が分かれている場合、 クエリが実行されるプロジェクトのリストをカンマ区切りで渡します。"
+msgstr ""
+
+#: ../../quickstart.rst:164
 msgid "コマンドリファレンス"
 msgstr ""
 
-#: ../../quickstart.rst:146
+#: ../../quickstart.rst:167
 msgid "analyze コマンドのオプション一覧"
 msgstr ""
 
-#: ../../quickstart.rst:163
+#: ../../quickstart.rst:186
 msgid "次のステップ"
 msgstr ""
 
-#: ../../quickstart.rst:165
+#: ../../quickstart.rst:188
 msgid ":doc:`configuration` — ``config.yaml`` のしきい値やコスト単価をカスタマイズする"
 msgstr ""
 
-#: ../../quickstart.rst:166
+#: ../../quickstart.rst:189
 msgid ":doc:`architecture` — dwh-auditor の内部設計と 3 層アーキテクチャを理解する"
 msgstr ""
 
-#: ../../quickstart.rst:167
+#: ../../quickstart.rst:190
 msgid ":doc:`api/index` — Python API として組み込む方法を確認する"
 msgstr ""

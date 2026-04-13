@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: dwh-auditor 0.1.0\n"
+"Project-Id-Version: dwh-auditor 0.2.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-12 23:10+0900\n"
+"POT-Creation-Date: 2026-04-13 12:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -59,9 +59,8 @@ msgid "QueryJob のリスト (Extractor から受け取る)"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/cost.py:docstring of dwh_auditor.analyzer.cost.analyze_cost:6
-#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:5
-#: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:7
-#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.detect_zombie_tables:8
+#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:8
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:7
 msgid "AppConfig オブジェクト"
 msgstr ""
 
@@ -78,6 +77,35 @@ msgid "戻り値の型"
 msgstr ""
 
 #: ../../api/analyzer.rst:27
+msgid "定常コスト分析 (``analyzer.recurring``)"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/recurring.py:docstring of dwh_auditor.analyzer.recurring:1
+msgid "定常実行クエリの分析ロジック."
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/recurring.py:docstring of dwh_auditor.analyzer.recurring:3
+#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner:3
+msgid "注意: このモジュールは google.cloud.bigquery を一切インポートしてはなりません。"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/recurring.py:docstring of dwh_auditor.analyzer.recurring.analyze_recurring_cost:1
+msgid "定常実行されているクエリのメタデータを RecurringCostInsight のリストにマップ・計算する."
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/recurring.py:docstring of dwh_auditor.analyzer.recurring.analyze_recurring_cost:3
+msgid "Extractor から抽出した定常クエリの集計辞書"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/recurring.py:docstring of dwh_auditor.analyzer.recurring.analyze_recurring_cost:4
+msgid "しきい値やコスト単価設定"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/recurring.py:docstring of dwh_auditor.analyzer.recurring.analyze_recurring_cost:6
+msgid "RecurringCostInsight のリスト"
+msgstr ""
+
+#: ../../api/analyzer.rst:37
 msgid "フルスキャン検知 (``analyzer.scan``)"
 msgstr ""
 
@@ -90,46 +118,58 @@ msgid "フルスキャンの可能性があるクエリを検知する."
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:3
-msgid "ignore_full_scan_under_gb 以下のスキャンは警告から除外します (小規模マスターテーブルのスキャンで警告疲れを防ぐため)。"
+msgid "バイト比率バリデーション方式: クエリの課金バイト数が参照テーブルの物理サイズの 90% 以上ならフルスキャンとみなす。"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:6
-msgid "QueryJob のリスト"
+msgid "Extractor から抽出したパース対象のジョブ"
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:9
-msgid "FullScanInsight のリスト (スキャン GB 降順)"
+#: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:7
+msgid "テーブルサイズ情報をルックアップするためのリスト"
 msgstr ""
 
-#: ../../api/analyzer.rst:37
+#: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:8
+msgid "しきい値"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/scan.py:docstring of dwh_auditor.analyzer.scan.detect_full_scans:10
+msgid "FullScanInsight のリスト"
+msgstr ""
+
+#: ../../api/analyzer.rst:47
 msgid "ゾンビテーブル検知 (``analyzer.zombie``)"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie:1
-msgid "ゾンビテーブル（使われていないテーブル）の検知ロジック."
+msgid "テーブルプロファイリング・およびゾンビ（未使用）判定ロジック."
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.detect_zombie_tables:1
-msgid "ゾンビテーブルを検知する."
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:1
+msgid "各テーブルのプロファイル（利用状況とゾンビ判定結果）を返す."
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.detect_zombie_tables:3
-msgid "zombie_table_days 以上、一度も SELECT で参照されていないテーブルを ゾンビとして報告します。"
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:3
+msgid "Extractor から受け取った軽量な usage_stats と tables を結合します。"
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.detect_zombie_tables:6
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:5
 msgid "TableStorage のリスト (Extractor から受け取る)"
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.detect_zombie_tables:7
-msgid "QueryJob のリスト (同上。参照テーブルの特定に使用)"
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:6
+msgid "\"project.dataset.table\" をキーとする統計辞書 (Extractor から受け取る)"
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.detect_zombie_tables:10
-msgid "ZombieTableInsight のリスト (ストレージサイズ降順)"
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:8
+msgid "基準となる現在日時 (テスト用)"
 msgstr ""
 
-#: ../../api/analyzer.rst:47
+#: ../../../src/dwh_auditor/analyzer/zombie.py:docstring of dwh_auditor.analyzer.zombie.analyze_table_usage:10
+msgid "TableUsageProfile のリスト (ストレージサイズ降順)"
+msgstr ""
+
+#: ../../api/analyzer.rst:57
 msgid "分析ランナー (``analyzer.runner``)"
 msgstr ""
 
@@ -137,30 +177,38 @@ msgstr ""
 msgid "分析ランナー: 各 Analyzer を呼び出して AuditResult に集約する."
 msgstr ""
 
-#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner:3
-msgid "注意: このモジュールは google.cloud.bigquery を一切インポートしてはなりません。"
-msgstr ""
-
 #: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:1
 msgid "全 Analyzer を実行し、総合監査結果を返す."
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:3
-msgid "Extractor から受け取った QueryJob リスト"
+msgid "高コストランキング用のジョブ抽出結果"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:4
-msgid "Extractor から受け取った TableStorage リスト"
+msgid "フルスキャン検知用のジョブ抽出結果"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:5
+msgid "定常実行クエリの抽出結果 (dict)"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:6
-msgid "分析対象期間 (日数)"
+msgid "テーブルごとの利用統計 (dict)"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:7
-msgid "分析対象の GCP プロジェクト ID"
+msgid "テーブルストレージ情報"
 msgstr ""
 
 #: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:9
+msgid "分析対象期間 (日数)"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:10
+msgid "分析対象の自 GCP プロジェクト ID"
+msgstr ""
+
+#: ../../../src/dwh_auditor/analyzer/runner.py:docstring of dwh_auditor.analyzer.runner.run_analysis:12
 msgid "AuditResult オブジェクト"
 msgstr ""
